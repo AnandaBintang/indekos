@@ -11,7 +11,7 @@
       href="./assets/icon/favicon.ico"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="./assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="./assets/css/plugins/bootstrap.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -22,16 +22,16 @@
     </div>
 
     <nav class="hamburger-menu">
-      <img src="./assets/img/menu.png" alt="menu-nav" />
+      <img src="./assets/img/menu.png" alt="menu-nav" draggable="false" />
     </nav>
 
-    <div class="video-container d-flex">
-      <video autoplay muted loop id="desktop-video">
-        <source src="./assets/video/header.mp4" type="video/mp4" />
-      </video>
-    </div>
-
     <header class="jumbotron">
+      <div class="video-container d-flex">
+        <video autoplay muted loop id="desktop-video">
+          <source src="./assets/video/header.mp4" type="video/mp4" />
+        </video>
+      </div>
+
       <img class="header-border" src="./assets/img/header-border.png" />
 
       <div class="row justify-content-center">
@@ -111,9 +111,16 @@
       </section>
     </div>
 
-    <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/bootstrap.js"></script>
-    <script src="./assets/js/vanilla-tilt.js"></script>
+    <h1
+      class="d-flex justify-content-center"
+      style="color: white; font-size: 5rem"
+    >
+      COMING SOON!!!
+    </h1>
+
+    <script src="./assets/js/plugins/jquery.js"></script>
+    <script src="./assets/js/plugins/bootstrap.js"></script>
+    <script src="./assets/js/plugins/vanilla-tilt.js"></script>
     <script src="./assets/js/main.js"></script>
   </body>
 </html>

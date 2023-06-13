@@ -27,7 +27,6 @@ body {
 
 /* Nav */
 nav img {
-  pointer-events: none;
   position: absolute;
   width: 15%;
   left: 3%;
@@ -68,10 +67,10 @@ nav img {
 
 .jumbotron .row .main-visual {
   position: absolute;
-  width: 43%;
+  width: 45%;
   height: auto;
-  top: 13%;
-  left: 55%;
+  top: 10%;
+  left: 52%;
   z-index: 3;
 }
 

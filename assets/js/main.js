@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // Preloader
   $("#preloader").css({
     opacity: "0",
     transition: "all 1s ease",
@@ -7,8 +8,8 @@ $(document).ready(function () {
     $("#preloader").remove();
   }, 500);
 
+  // Responsive Parallax
   const mediaQuery = window.matchMedia("(min-width: 992px)");
-
   if (mediaQuery.matches) {
     // About Parallax
     var b = document.getElementsByTagName("body")[0];
@@ -54,4 +55,9 @@ $(document).ready(function () {
   } else {
     $(".main-visual").removeAttr("data-tilt");
   }
+
+  // Menu
+  $(".hamburger-menu").on("click", function () {
+    alert("Coming Soon!");
+  });
 });
