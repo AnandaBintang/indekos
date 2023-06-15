@@ -1,7 +1,7 @@
 @font-face {
   font-family: "bakso_sapiregular";
-  src: url("../font/baksosapi/baksosapi-webfont.woff2") format("woff2"),
-    url("../font/baksosapi/baksosapi-webfont.woff") format("woff");
+  src: url("../font/baksosapi-webfont.woff2") format("woff2"),
+    url("../font/baksosapi-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }

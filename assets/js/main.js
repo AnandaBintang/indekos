@@ -1,13 +1,4 @@
 $(document).ready(function () {
-  // Preloader
-  $("#preloader").css({
-    opacity: "0",
-    transition: "all 1s ease",
-  });
-  setTimeout(() => {
-    $("#preloader").remove();
-  }, 500);
-
   // Responsive Parallax
   const mediaQuery = window.matchMedia("(min-width: 992px)");
   if (mediaQuery.matches) {
@@ -60,4 +51,15 @@ $(document).ready(function () {
   $(".hamburger-menu").on("click", function () {
     alert("Coming Soon!");
   });
+});
+
+$(window).on("load", function () {
+  // Preloader
+  $("#preloader").css({
+    opacity: "0",
+    transition: "all 1s ease",
+  });
+  setTimeout(() => {
+    $("#preloader").remove();
+  }, 500);
 });
