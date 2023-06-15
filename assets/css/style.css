@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "bakso_sapiregular";
+  src: url("../font/baksosapi/baksosapi-webfont.woff2") format("woff2"),
+    url("../font/baksosapi/baksosapi-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   cursor: url("../img/cursor.png"), auto;
 }
@@ -168,7 +176,7 @@ nav img {
 #progress .progress-pointer {
   position: absolute;
   top: 23%;
-  left: 44%;
+  left: 27%;
   z-index: 3;
   width: 7%;
 }
@@ -243,27 +251,31 @@ nav img {
 #progress .loading-progress .progress-title {
   position: absolute;
   top: 100%;
-  width: 7%;
+  width: 100%;
 }
 
-#progress .loading-progress .progress-title .pre-production-text {
+#progress .loading-progress .progress-title span {
+  font-family: "bakso_sapiregular";
+  font-size: 1.5rem;
   position: absolute;
-  left: 260%;
+  top: 100%;
+  color: #fff;
 }
 
-#progress .loading-progress .progress-title .production-text {
-  position: absolute;
-  left: 600%;
+#progress .loading-progress .progress-title .pre-production__text {
+  left: 15%;
 }
 
-#progress .loading-progress .progress-title .post-production-text {
-  position: absolute;
-  left: 915%;
+#progress .loading-progress .progress-title .production__text {
+  left: 40%;
 }
 
-#progress .loading-progress .progress-title .launching-text {
-  position: absolute;
-  left: 1245%;
+#progress .loading-progress .progress-title .post-production__text {
+  left: 60%;
+}
+
+#progress .loading-progress .progress-title .launching__text {
+  left: 85%;
 }
 
 @keyframes bounce-in-top {
@@ -387,5 +399,9 @@ nav img {
     top: 10%;
     width: 68%;
     z-index: 3;
+  }
+
+  #progress .loading-progress .progress-title span {
+    font-size: 0.3rem;
   }
 }
