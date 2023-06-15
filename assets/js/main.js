@@ -61,5 +61,7 @@ $(window).on("load", function () {
   });
   setTimeout(() => {
     $("#preloader").remove();
+    $("#logo").removeClass("d-none");
+    $("#logo").addClass("bounce-top");
   }, 500);
 });
