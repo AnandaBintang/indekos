@@ -196,7 +196,7 @@ nav img {
 }
 
 #progress .loading-progress img {
-  pointer-events: none;
+  /* pointer-events: none; */
   width: 100%;
 }
 
@@ -278,6 +278,166 @@ nav img {
 
 #progress .loading-progress .progress-title .launching__text {
   left: 85%;
+}
+
+#tooltip {
+  position: absolute;
+  text-align: center;
+  width: 15%;
+}
+
+.pre-production__animation {
+  animation: shaking 2.5s linear 0s infinite normal forwards;
+}
+
+.production__animation-1 {
+  animation: slide-run__1 1s ease 0s infinite normal forwards;
+}
+
+.production__animation-2 {
+  animation: slide-run__2 1s ease 0s infinite normal forwards;
+}
+
+.post-production__animation {
+  animation: shake-bottom 3s ease 0s infinite normal forwards;
+}
+
+.launching__animation {
+  animation: shake-vertical 2.5s ease-in-out 0s infinite normal forwards;
+}
+
+.progress-pointer__animation {
+  animation: rotate3d 2s ease-in-out 0s infinite normal forwards;
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotateY(0);
+  }
+
+  50% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: rotateY(0);
+  }
+}
+
+@keyframes shaking {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateX(-10px);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: translateX(10px);
+  }
+
+  80% {
+    transform: translateX(8px);
+  }
+
+  90% {
+    transform: translateX(-8px);
+  }
+}
+
+@keyframes slide-run__1 {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-40px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-run__2 {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(70px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes shake-bottom {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 100%;
+  }
+
+  10% {
+    transform: rotate(2deg);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: rotate(-4deg);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: rotate(4deg);
+  }
+
+  80% {
+    transform: rotate(-2deg);
+  }
+
+  90% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes shake-vertical {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateY(-8px);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: translateY(8px);
+  }
+
+  80% {
+    transform: translateY(6.4px);
+  }
+
+  90% {
+    transform: translateY(-6.4px);
+  }
 }
 
 @keyframes bounce-in-top {

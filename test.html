@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      table {
+        width: 100%;
+        cell-spacing: 0px;
+      }
+      td {
+        border: 1px solid;
+        padding: 10px;
+        cell-spacing: 0px;
+        cell-padding: 0px;
+      }
+      .popover-item {
+        position: relative;
+      }
+      .popover-content {
+        display: none;
+        position: absolute;
+        left: 105%;
+        display: none;
+        font-size: 1.2rem;
+        background-color: rgba(230, 230, 230, 1);
+        padding: 10px 20px;
+        border-radius: 16px;
+        font-family: Tahoma, Verdana, Segoe, sans-serif;
+        font-weight: normal;
+        z-index: 111;
+        width: 300px;
+      }
+      .popover-content:hover {
+        display: none !important;
+      }
+      .popover-item:hover .popover-content {
+        display: block;
+      }
+      .popover-content h1 {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <table cellspacing="0px">
+      <tr>
+        <td class="popover-item">
+          Cell 1
+          <div class="popover-content">
+            <h1>Cell 1 - Tooltip/Popover</h1>
+            <p>
+              This is a Tooltip/Popover following the mouse pointer on hover
+            </p>
+          </div>
+        </td>
+        <td class="popover-item">
+          Cell 2
+          <div class="popover-content">
+            <h1>Cell 2 - Tooltip/Popover</h1>
+            <p>
+              This is a Tooltip/Popover following the mouse pointer on hover
+            </p>
+          </div>
+        </td>
+        <td class="popover-item">
+          Cell 3
+          <div class="popover-content">
+            <h1>Cell 3 - Tooltip/Popover</h1>
+            <p>
+              This is a Tooltip/Popover following the mouse pointer on hover
+            </p>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      /* Script for popover positioning */
+      (function (selector, horizontalOffset, verticalOffset) {
+        var items;
+        selector = selector || ".popover-item";
+        horizontalOffset = horizontalOffset || 5;
+        verticalOffset = verticalOffset || 5;
+        items = document.querySelectorAll(selector);
+        items = Array.prototype.slice.call(items);
+        items.forEach(function (item) {
+          item.addEventListener("mousemove", function (e) {
+            let countCssRules = document.styleSheets[0].cssRules.length;
+            var rightSpace = document.body.clientWidth - e.pageX;
+            if (rightSpace > 300) {
+              var newRule =
+                selector +
+                ":hover .popover-content {  " +
+                "right:auto; left: " +
+                (horizontalOffset + e.offsetX) +
+                "px; " +
+                "top: " +
+                (e.offsetY + verticalOffset) +
+                "px; }";
+            } else {
+              var newRule =
+                selector +
+                ":hover .popover-content {  " +
+                "left:auto; right: " +
+                (item.offsetWidth - e.offsetX) +
+                "px; " +
+                "top: " +
+                (e.offsetY + verticalOffset) +
+                "px; }";
+            }
+            document.styleSheets[0].insertRule(newRule, countCssRules);
+          });
+        });
+      })(".popover-item", 10, 5);
+    </script>
+  </body>
+</html>

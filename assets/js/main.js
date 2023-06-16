@@ -43,10 +43,71 @@ $(document).ready(function () {
         );
       }
     }
-  } else {
-    $(".main-visual").removeAttr("data-tilt");
-  }
 
+    $(document).mousemove(function (e) {
+      $("#tooltip").css({
+        left: e.pageX,
+        top: e.pageY + 50,
+      });
+
+      // Progress Pointer
+      $(".progress-pointer")
+        .on("mouseover", function () {
+          $(this).addClass("progress-pointer__animation");
+        })
+        .on("mouseout", function () {
+          $(this).removeClass("progress-pointer__animation");
+        });
+
+      // Pre Production
+      $(".pre-production__doni")
+        .on("mouseover", function () {
+          $(this).addClass("pre-production__animation");
+          $(".pre-production__roy").addClass("pre-production__animation");
+          $("#tooltip").removeClass("d-none");
+        })
+        .on("mouseout", function () {
+          $(this).removeClass("pre-production__animation");
+          $(".pre-production__roy").removeClass("pre-production__animation");
+          $("#tooltip").addClass("d-none");
+        });
+
+      // Production
+      $(".production__doni")
+        .on("mouseover", function () {
+          $(this).addClass("production__animation-2");
+          $(".production__roy").addClass("production__animation-1");
+          $("#tooltip").removeClass("d-none");
+        })
+        .on("mouseout", function () {
+          $(this).removeClass("production__animation-2");
+          $(".production__roy").removeClass("production__animation-1");
+          $("#tooltip").addClass("d-none");
+        });
+
+      // Post Production
+      $(".post-production__doni")
+        .on("mouseover", function () {
+          $(this).addClass("post-production__animation");
+          $("#tooltip").removeClass("d-none");
+        })
+        .on("mouseout", function () {
+          $(this).removeClass("post-production__animation");
+          $("#tooltip").addClass("d-none");
+        });
+
+      // Launching
+      $(".launching__roy")
+        .on("mouseover", function () {
+          $(this).addClass("launching__animation");
+          $("#tooltip").removeClass("d-none");
+        })
+        .on("mouseout", function () {
+          $(this).removeClass("launching__animation");
+          $("#tooltip").addClass("d-none");
+        });
+    });
+  }
   // Menu
   $(".hamburger-menu").on("click", function () {
     alert("Coming Soon!");
