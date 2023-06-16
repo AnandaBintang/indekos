@@ -13,6 +13,7 @@ $(document).ready(function () {
       var x = document.getElementsByClassName("about-indekos");
       var i;
       for (i = 0; i < x.length; i++) {
+        // About Parallax
         $(".img-about-1").css(
           "transform",
           `translate(${amountMovedX * -0.3}px, ${amountMovedY * -0.3}px)`
@@ -40,6 +41,12 @@ $(document).ready(function () {
         $(".img-about-7").css(
           "transform",
           `translate(${amountMovedX * -0.3}px, ${amountMovedY * -0.3}px)`
+        );
+
+        // Teams Parallax
+        $("#teams__ceo").css(
+          "transform",
+          `rotateZ(${amountMovedX * 0.1 + 4}deg)`
         );
       }
     }

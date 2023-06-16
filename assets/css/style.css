@@ -15,6 +15,10 @@ body {
   background-color: #2c2c2c;
 }
 
+.link-cursor {
+  cursor: url("../img/link-cursor.png"), auto !important;
+}
+
 /* Preloader */
 #preloader {
   position: fixed;
@@ -320,18 +324,49 @@ nav img {
 }
 
 /* Staff */
-#staff {
+#teams {
   position: relative;
 }
 
-#staff .staff-bg {
+#teams .teams-bg {
   z-index: 1;
 }
 
-#staff .staff-bg img {
+#teams .teams-bg img {
   position: relative;
   pointer-events: none;
   width: 100%;
+}
+
+#teams .teams-container img {
+  position: absolute;
+  width: 100%;
+}
+
+#teams .teams-container .teams__rope img {
+  top: 20%;
+}
+
+#teams
+  .teams-container
+  .teams__clothesline
+  .teams__clothesline-ceo
+  .teams__tongs {
+  width: 10%;
+  top: 20%;
+  left: 8%;
+  z-index: 2;
+}
+
+#teams
+  .teams-container
+  .teams__clothesline
+  .teams__clothesline-ceo
+  .teams__clothes {
+  width: 30%;
+  top: 7%;
+  left: -2%;
+  z-index: 1;
 }
 
 /* Keyframes */
