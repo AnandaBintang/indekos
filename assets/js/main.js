@@ -65,11 +65,13 @@ $(document).ready(function () {
           $(this).addClass("pre-production__animation");
           $(".pre-production__roy").addClass("pre-production__animation");
           $("#tooltip").removeClass("d-none");
+          $("#tooltip").attr("src", "./assets/img/tooltip/pre-production.png");
         })
         .on("mouseout", function () {
           $(this).removeClass("pre-production__animation");
           $(".pre-production__roy").removeClass("pre-production__animation");
           $("#tooltip").addClass("d-none");
+          $("#tooltip").removeAttr("src");
         });
 
       // Production
@@ -78,11 +80,13 @@ $(document).ready(function () {
           $(this).addClass("production__animation-2");
           $(".production__roy").addClass("production__animation-1");
           $("#tooltip").removeClass("d-none");
+          $("#tooltip").attr("src", "./assets/img/tooltip/production.png");
         })
         .on("mouseout", function () {
           $(this).removeClass("production__animation-2");
           $(".production__roy").removeClass("production__animation-1");
           $("#tooltip").addClass("d-none");
+          $("#tooltip").removeAttr("src");
         });
 
       // Post Production
@@ -90,10 +94,12 @@ $(document).ready(function () {
         .on("mouseover", function () {
           $(this).addClass("post-production__animation");
           $("#tooltip").removeClass("d-none");
+          $("#tooltip").attr("src", "./assets/img/tooltip/post-production.png");
         })
         .on("mouseout", function () {
           $(this).removeClass("post-production__animation");
           $("#tooltip").addClass("d-none");
+          $("#tooltip").removeAttr("src");
         });
 
       // Launching
@@ -101,10 +107,12 @@ $(document).ready(function () {
         .on("mouseover", function () {
           $(this).addClass("launching__animation");
           $("#tooltip").removeClass("d-none");
+          $("#tooltip").attr("src", "./assets/img/tooltip/launching.png");
         })
         .on("mouseout", function () {
           $(this).removeClass("launching__animation");
           $("#tooltip").addClass("d-none");
+          $("#tooltip").removeAttr("src");
         });
     });
   }

@@ -156,6 +156,14 @@ nav img {
   width: 100%;
 }
 
+#about .about-indekos .demo-video {
+  position: absolute;
+  transform: translateY(165%) rotateZ(350deg);
+  left: 75%;
+  width: 20%;
+  pointer-events: all;
+}
+
 /* Progress */
 #progress {
   position: relative;
@@ -177,7 +185,7 @@ nav img {
 
 #progress .progress-pointer {
   position: absolute;
-  top: 23%;
+  top: 29%;
   left: 27%;
   z-index: 3;
   width: 7%;
@@ -189,14 +197,13 @@ nav img {
 
 #progress .loading-progress {
   position: absolute;
-  top: 35%;
+  top: 40%;
   left: 15%;
   z-index: 3;
   width: 70%;
 }
 
 #progress .loading-progress img {
-  /* pointer-events: none; */
   width: 100%;
 }
 
@@ -283,7 +290,9 @@ nav img {
 #tooltip {
   position: absolute;
   text-align: center;
-  width: 15%;
+  opacity: 0.8;
+  width: 20%;
+  z-index: 99;
 }
 
 .pre-production__animation {
@@ -310,6 +319,22 @@ nav img {
   animation: rotate3d 2s ease-in-out 0s infinite normal forwards;
 }
 
+/* Staff */
+#staff {
+  position: relative;
+}
+
+#staff .staff-bg {
+  z-index: 1;
+}
+
+#staff .staff-bg img {
+  position: relative;
+  pointer-events: none;
+  width: 100%;
+}
+
+/* Keyframes */
 @keyframes rotate3d {
   0% {
     transform: rotateY(0);
@@ -561,6 +586,13 @@ nav img {
     top: 10%;
     width: 68%;
     z-index: 3;
+  }
+
+  #about .about-indekos .demo-video {
+    position: absolute;
+    transform: translateY(145%) rotateZ(350deg);
+    left: 65%;
+    width: 15%;
   }
 
   #progress .loading-progress .progress-title span {
