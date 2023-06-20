@@ -344,7 +344,7 @@ nav img {
 }
 
 #teams .teams-container .teams__rope img {
-  top: 8%;
+  top: 27.5%;
 }
 
 #teams
@@ -353,8 +353,8 @@ nav img {
   .teams__clothesline-ceo
   .teams__tongs {
   width: 10%;
-  top: 8%;
-  left: 8%;
+  top: 29%;
+  left: 15%;
   z-index: 2;
 }
 
@@ -364,8 +364,8 @@ nav img {
   .teams__clothesline-ceo
   .teams__clothes {
   width: 30%;
-  top: -5%;
-  left: -2%;
+  top: 24%;
+  left: 5%;
   z-index: 1;
 }
 
@@ -375,7 +375,7 @@ nav img {
   .teams__clothesline-developer
   .teams__tongs {
   width: 10%;
-  top: 18%;
+  top: 32%;
   left: 38%;
   z-index: 2;
 }
@@ -386,7 +386,7 @@ nav img {
   .teams__clothesline-developer
   .teams__clothes {
   width: 30%;
-  top: 5%;
+  top: 27%;
   left: 28%;
   z-index: 1;
 }
@@ -397,7 +397,7 @@ nav img {
   .teams__clothesline-2d
   .teams__tongs {
   width: 10%;
-  top: 21%;
+  top: 33%;
   left: 68%;
   z-index: 2;
 }
@@ -408,7 +408,7 @@ nav img {
   .teams__clothesline-2d
   .teams__clothes {
   width: 30%;
-  top: 8%;
+  top: 28%;
   left: 58%;
   z-index: 1;
 }
@@ -419,7 +419,7 @@ nav img {
   .teams__clothesline-3d
   .teams__tongs {
   width: 10%;
-  top: 74%;
+  top: 54%;
   left: 78%;
   z-index: 2;
 }
@@ -430,7 +430,7 @@ nav img {
   .teams__clothesline-3d
   .teams__clothes {
   width: 30%;
-  top: 61%;
+  top: 49%;
   left: 68%;
   z-index: 1;
 }
@@ -441,7 +441,7 @@ nav img {
   .teams__clothesline-storyboard
   .teams__tongs {
   width: 10%;
-  top: 64%;
+  top: 50%;
   left: 28%;
   z-index: 2;
 }
@@ -452,7 +452,7 @@ nav img {
   .teams__clothesline-storyboard
   .teams__clothes {
   width: 30%;
-  top: 51%;
+  top: 45%;
   left: 18%;
   z-index: 1;
 }
