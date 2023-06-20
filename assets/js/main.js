@@ -44,10 +44,26 @@ $(document).ready(function () {
         );
 
         // Teams Parallax
-        $("#teams__ceo").css(
-          "transform",
-          `rotateZ(${amountMovedX * 0.1 + 4}deg)`
-        );
+        // $("#teams__ceo").css(
+        //   "transform",
+        //   `rotateZ(${amountMovedX * 0.1 + 4}deg)`
+        // );
+        // $("#teams__developer").css(
+        //   "transform",
+        //   `rotateZ(${amountMovedX * 0.1 + 4}deg)`
+        // );
+        // $("#teams__2d").css(
+        //   "transform",
+        //   `rotateZ(${amountMovedX * 0.1 + 4}deg)`
+        // );
+        // $("#teams__storyboard").css(
+        //   "transform",
+        //   `rotateZ(${amountMovedX * -0.1 - 4}deg)`
+        // );
+        // $("#teams__3d").css(
+        //   "transform",
+        //   `rotateZ(${amountMovedX * -0.1 - 4}deg)`
+        // );
       }
     }
 
@@ -121,6 +137,66 @@ $(document).ready(function () {
           $("#tooltip").addClass("d-none");
           $("#tooltip").removeAttr("src");
         });
+    });
+  } else {
+    $(".pre-production__doni").on("click", function (e) {
+      $("#tooltip").css({
+        left: $(".pre-production__doni").position().left + 30,
+        top: `${e.pageY + 15}px`,
+      });
+
+      if ($("#tooltip").hasClass("d-none")) {
+        $("#tooltip").removeClass("d-none");
+      } else {
+        $("#tooltip").addClass("d-none");
+      }
+
+      $("#tooltip").attr("src", "./assets/img/tooltip/pre-production.png");
+    });
+
+    $(".production__doni").on("click", function (e) {
+      $("#tooltip").css({
+        left: $(".production__doni").position().left + 30,
+        top: `${e.pageY + 15}px`,
+      });
+
+      if ($("#tooltip").hasClass("d-none")) {
+        $("#tooltip").removeClass("d-none");
+      } else {
+        $("#tooltip").addClass("d-none");
+      }
+
+      $("#tooltip").attr("src", "./assets/img/tooltip/production.png");
+    });
+
+    $(".post-production__doni").on("click", function (e) {
+      $("#tooltip").css({
+        left: $(".post-production__doni").position().left + 30,
+        top: `${e.pageY + 15}px`,
+      });
+
+      if ($("#tooltip").hasClass("d-none")) {
+        $("#tooltip").removeClass("d-none");
+      } else {
+        $("#tooltip").addClass("d-none");
+      }
+
+      $("#tooltip").attr("src", "./assets/img/tooltip/post-production.png");
+    });
+
+    $(".launching__roy").on("click", function (e) {
+      $("#tooltip").css({
+        left: $(".launching__roy").position().left + 30,
+        top: `${e.pageY + 15}px`,
+      });
+
+      if ($("#tooltip").hasClass("d-none")) {
+        $("#tooltip").removeClass("d-none");
+      } else {
+        $("#tooltip").addClass("d-none");
+      }
+
+      $("#tooltip").attr("src", "./assets/img/tooltip/launching.png");
     });
   }
   // Menu
