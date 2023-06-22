@@ -44,8 +44,9 @@ body {
 /* Nav */
 nav img {
   position: absolute;
-  width: 15%;
-  left: 3%;
+  width: 12%;
+  top: 8%;
+  left: 4%;
   z-index: 99;
 }
 
@@ -324,6 +325,43 @@ nav img {
   animation: rotate3d 2s ease-in-out 0s infinite normal forwards;
 }
 
+/* Character */
+#character {
+  position: relative;
+}
+
+#character .title img {
+  position: absolute;
+  top: -75%;
+  left: 33%;
+  width: 35%;
+}
+
+#character .character-kos {
+  position: relative;
+  display: block;
+  z-index: 2;
+  width: 30%;
+  cursor: url("../img/link-cursor.png"), auto !important;
+  transition: all 0.2s;
+}
+
+#character .character-kos:hover {
+  transform: scale(1.2);
+}
+
+#character .character__additional img {
+  position: absolute;
+  display: block;
+  width: 10%;
+  z-index: 1;
+  left: 45%;
+  top: 40%;
+  transform: rotateZ(20deg);
+  transition: all 0.25s;
+  animation: floating 7s linear 0s infinite reverse both;
+}
+
 /* Staff */
 #teams {
   position: relative;
@@ -467,6 +505,32 @@ nav img {
 }
 
 /* Keyframes */
+@keyframes floating {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(8%, -8%) rotateZ(20deg);
+  }
+
+  40% {
+    transform: translate(13%, 13%) rotateZ(10deg);
+  }
+
+  60% {
+    transform: translate(-5%, 5%) rotateZ(-10deg);
+  }
+
+  80% {
+    transform: translate(-8%, -8%) rotateZ(5deg);
+  }
+
+  100% {
+    transform: translate(0) rotateZ(0);
+  }
+}
+
 @keyframes rotate-clothes {
   0% {
     transform: rotate(5deg);
