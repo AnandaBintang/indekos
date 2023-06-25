@@ -258,13 +258,9 @@ nav img {
   width: 100%;
 }
 
-#progress .progress-container {
-  padding-top: 15%;
-}
-
 #progress .progress-pointer {
   position: absolute;
-  top: 29%;
+  top: 38%;
   left: 27%;
   z-index: 3;
   width: 7%;
@@ -276,7 +272,7 @@ nav img {
 
 #progress .loading-progress {
   position: absolute;
-  top: 40%;
+  top: 51%;
   left: 15%;
   z-index: 3;
   width: 70%;
@@ -403,8 +399,21 @@ nav img {
   position: relative;
 }
 
+#character .comic-container {
+  position: relative;
+}
+
+#character .comic-container img {
+  position: absolute;
+  transform: translateX(15%) translateY(-10%);
+  width: 70%;
+  transition: all 0.3s;
+}
+
 #character .character-kos {
   position: relative;
+  top: 5%;
+  left: 30%;
   display: block;
   z-index: 2;
   width: 30%;
@@ -425,7 +434,7 @@ nav img {
   top: 40%;
   transform: rotateZ(20deg);
   transition: all 0.25s;
-  animation: floating 7s linear 0s infinite reverse both;
+  /* animation: floating 7s linear 0s infinite reverse both; */
 }
 
 /* Staff */

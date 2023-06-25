@@ -86,15 +86,15 @@ $(document).ready(function () {
       top_1: "10%",
       top_2: "55%",
       top_3: "-45%",
-      top_4: "78%",
-      top_5: "5%",
-      left_1: "68%",
-      left_2: "22%",
-      left_3: "45%",
+      top_4: "100%",
+      top_5: "-30%",
+      left_1: "51%",
+      left_2: "51%",
+      left_3: "70%",
       left_4: "63%",
-      left_5: "22%",
+      left_5: "57%",
       idle_top: "40%",
-      idle_left: "45%",
+      idle_left: "70%",
     };
 
     characterHover(position);
@@ -174,7 +174,7 @@ $(document).ready(function () {
       idle_left: "40%",
     };
 
-    characterHover(position);
+    // characterHover(position);
   }
   // Menu
   $(".menu-button").on("click", function () {
@@ -230,6 +230,36 @@ $(document).ready(function () {
       $(".menu-button").attr("src", "./assets/img/menu.png");
     }
   });
+
+  // Comic
+  $(".comic-1")
+    .on("mouseover", function () {
+      $(".image-comic-1").css("scale", "1.1");
+    })
+    .on("mouseout", function () {
+      $(".image-comic-1").css("scale", "1");
+    });
+  $(".comic-2")
+    .on("mouseover", function () {
+      $(".image-comic-2").css("scale", "1.1");
+    })
+    .on("mouseout", function () {
+      $(".image-comic-2").css("scale", "1");
+    });
+  $(".comic-3")
+    .on("mouseover", function () {
+      $(".image-comic-3").css("scale", "1.1");
+    })
+    .on("mouseout", function () {
+      $(".image-comic-3").css("scale", "1");
+    });
+  $(".comic-4")
+    .on("mouseover", function () {
+      $(".image-comic-4").css("scale", "1.1");
+    })
+    .on("mouseout", function () {
+      $(".image-comic-4").css("scale", "1");
+    });
 });
 
 $(window).on("load", function () {

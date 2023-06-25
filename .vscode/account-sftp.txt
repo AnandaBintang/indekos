@@ -1,0 +1,23 @@
+
+Detail Login cPanel
+Domain 	: animationfactory.space
+cPanel Username 	: animatio
+cPanel Password 	: Bl8FR+I2)x74gj
+Control Panel URL 	: http://potenza.id.domainesia.com/cpanel
+Alternatif 	: http://animationfactory.space/cpanel
+
+Mohon pastikan tidak ada karakter spasi di belakang username/password ketika melakukan copy-paste.
+Informasi Server
+Server Name 	: Jakarta - Potenza
+Server IP 	: 103.56.204.30
+SSH Port 	: 64000
+MySQL Server 	: localhost
+
+Untuk memulai menggunakan layanan hosting dari DomaiNesia, Anda perlu mengarahkan nameserver domain anda ke:
+Nameserver 1 	: ns1.domainesia.net (103.147.154.34) 
+Nameserver 2 	: ns2.domainesia.net (96.126.118.18)
+Informasi Akses FTP
+FTP Server 	: potenza.id.domainesia.com
+FTP Server IP 	: 103.56.204.30
+FTP Port 	: 21
+SFTP Port 	: 64000 (hanya hosting Super ke atas)
