@@ -169,6 +169,12 @@ $(document).ready(function () {
       });
   }
 
+  $(document).keyup(function (e) {
+    if (e.key === "Escape") {
+      $(".menu-button").trigger("click");
+    }
+  });
+
   $(".menu-1").on("click", function () {
     setTimeout(() => {
       $(".menu-button").trigger("click");
@@ -241,6 +247,7 @@ $(document).ready(function () {
   };
 
   characterHover(position);
+
   // Menu
   $(".menu-button").on("click", function () {
     if ($(".menu-page").hasClass("d-none")) {
@@ -305,8 +312,8 @@ $(document).ready(function () {
   });
 
   // Comic
-  var lightbox = new FsLightbox();
   $(".image-comic-1").on("click", function () {
+    var lightbox = new FsLightbox();
     lightbox.props.sources = [
       "./assets/img/comic/series/eps4/a.jpg",
       "./assets/img/comic/series/eps4/b.jpg",
@@ -355,6 +362,11 @@ $(document).ready(function () {
   // Social Media
   $(".social-media__icon-instagram").on("click", function () {
     window.open("https://www.instagram.com/indekos_/", "_blank");
+  });
+
+  // Kos
+  $(".character-kos").on("click", function () {
+    location.href = "./character.html";
   });
 });
 

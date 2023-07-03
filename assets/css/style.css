@@ -465,7 +465,7 @@ nav img {
 }
 
 #character .character-kos:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 #character .character__additional img {
