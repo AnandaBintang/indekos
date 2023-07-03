@@ -622,19 +622,19 @@ nav img {
 }
 
 /* Social Media */
-#social-media {
+#social-medias {
   position: relative;
 }
 
-#social-media .phone-container {
+#social-medias .phone-container {
   position: relative;
 }
 
-#social-media .phone-container .social-media__phone-container {
+#social-medias .phone-container .social-media__phone-container {
   cursor: none;
 }
 
-#social-media .phone-container .social-media__finger {
+#social-medias .phone-container .social-media__finger {
   position: absolute;
   top: 20%;
   left: 27%;
@@ -642,14 +642,14 @@ nav img {
   z-index: 4;
 }
 
-#social-media .phone-container .social-media__phone-handle {
+#social-medias .phone-container .social-media__phone-handle {
   position: relative;
   left: 3%;
   width: 30%;
   z-index: 2;
 }
 
-#social-media .phone-container .social-media__phone-main {
+#social-medias .phone-container .social-media__phone-main {
   position: relative;
   transform: translateY(-166%);
   left: 20%;
@@ -657,33 +657,33 @@ nav img {
   z-index: 2;
 }
 
-#social-media .phone-container .social-media__icon img {
+#social-medias .phone-container .social-media__icon img {
   position: absolute;
   width: 3%;
   z-index: 3;
   transition: all 0.3s;
 }
 
-#social-media .phone-container .social-media__icon-instagram {
+#social-medias .phone-container .social-media__icon-instagram {
   top: 10%;
   left: 22%;
 }
 
-#social-media .phone-container .social-media__icon-youtube {
+#social-medias .phone-container .social-media__icon-youtube {
   top: 10%;
   left: 26%;
 }
 
-#social-media .phone-container .social-media__icon-whatsapp {
+#social-medias .phone-container .social-media__icon-whatsapp {
   top: 18%;
   left: 22%;
 }
 
-#social-media .phone-container .social-media__icon img:hover {
+#social-medias .phone-container .social-media__icon img:hover {
   scale: 1.1;
 }
 
-#social-media .phone-container .social-media__hover-container img {
+#social-medias .phone-container .social-media__hover-container img {
   position: absolute;
   width: 50%;
   top: -10%;

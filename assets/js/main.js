@@ -89,7 +89,7 @@ $(document).ready(function () {
           $(".social-media__finger").css({
             transition: "none",
             left: e.pageX * (97 / 100),
-            top: (e.pageY - $("#social-media").offset().top) * (110 / 100),
+            top: (e.pageY - $("#social-medias").offset().top) * (110 / 100),
           });
         });
       })
@@ -225,7 +225,7 @@ $(document).ready(function () {
     }, 1);
     $([document.documentElement, document.body]).animate(
       {
-        scrollTop: $("#social-media").offset().top,
+        scrollTop: $("#social-medias").offset().top,
       },
       500
     );
