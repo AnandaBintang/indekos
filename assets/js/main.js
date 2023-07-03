@@ -83,12 +83,30 @@ $(document).ready(function () {
     });
 
     // Social Media
-    $("#social-media").mousemove(function (e) {
-      $(".social-media__finger").css({
-        left: e.pageX * (97 / 100),
-        top: (e.pageY - $("#social-media").offset().top) * (110 / 100),
+    $(".social-media__phone-container")
+      .on("mouseover", function () {
+        $(this).mousemove(function (e) {
+          $(".social-media__finger").css({
+            transition: "none",
+            left: e.pageX * (97 / 100),
+            top: (e.pageY - $("#social-media").offset().top) * (110 / 100),
+          });
+        });
+      })
+      .on("mouseout", function () {
+        $(".social-media__finger").css({
+          transition: "all 1s ease-in-out",
+          left: "27%",
+          top: "20%",
+        });
       });
-    });
+    $(".social-media__icon-instagram")
+      .on("mouseover", function () {
+        $(".social-media__hover").removeClass("d-none");
+      })
+      .on("mouseout", function () {
+        $(".social-media__hover").addClass("d-none");
+      });
   } else {
     $(".pre-production__doni")
       .on("mouseover", function (e) {
@@ -151,6 +169,62 @@ $(document).ready(function () {
       });
   }
 
+  $(".menu-1").on("click", function () {
+    setTimeout(() => {
+      $(".menu-button").trigger("click");
+    }, 1);
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#about").offset().top,
+      },
+      500
+    );
+  });
+  $(".menu-2").on("click", function () {
+    setTimeout(() => {
+      $(".menu-button").trigger("click");
+    }, 1);
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#progress").offset().top,
+      },
+      500
+    );
+  });
+  $(".menu-3").on("click", function () {
+    setTimeout(() => {
+      $(".menu-button").trigger("click");
+    }, 1);
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#character").offset().top,
+      },
+      500
+    );
+  });
+  $(".menu-4").on("click", function () {
+    setTimeout(() => {
+      $(".menu-button").trigger("click");
+    }, 1);
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#teams").offset().top,
+      },
+      500
+    );
+  });
+  $(".menu-5").on("click", function () {
+    setTimeout(() => {
+      $(".menu-button").trigger("click");
+    }, 1);
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#social-media").offset().top,
+      },
+      500
+    );
+  });
+
   position = {
     top_1: "10%",
     top_2: "55%",
@@ -183,24 +257,32 @@ $(document).ready(function () {
       $(".menu-1").addClass("anim__slide-in-left");
       $(".menu-2").addClass("anim__slide-in-right");
       $(".menu-3").addClass("anim__slide-in-left");
+      $(".menu-4").addClass("anim__slide-in-right");
+      $(".menu-5").addClass("anim__slide-in-left");
 
       $(".menu-1").removeClass("anim__slide-out-left");
       $(".menu-2").removeClass("anim__slide-out-right");
       $(".menu-3").removeClass("anim__slide-out-left");
+      $(".menu-4").removeClass("anim__slide-out-right");
+      $(".menu-5").removeClass("anim__slide-out-left");
 
       $(".menu-page").addClass("blurred");
 
       $("body").css("overflowY", "hidden");
 
-      $(".menu-button").attr("src", "./assets/img/exit.png");
+      $(".menu-button").attr("src", "./assets/img/menu/exit.png");
     } else {
       $(".menu-1").addClass("anim__slide-out-left");
       $(".menu-2").addClass("anim__slide-out-right");
       $(".menu-3").addClass("anim__slide-out-left");
+      $(".menu-4").addClass("anim__slide-out-right");
+      $(".menu-5").addClass("anim__slide-out-left");
 
       $(".menu-1").removeClass("anim__slide-in-left");
       $(".menu-2").removeClass("anim__slide-in-right");
       $(".menu-3").removeClass("anim__slide-in-left");
+      $(".menu-4").removeClass("anim__slide-in-right");
+      $(".menu-5").removeClass("anim__slide-in-left");
 
       setTimeout(() => {
         $(".top-menu").removeClass("anim__slide-in-bottom");
@@ -218,39 +300,62 @@ $(document).ready(function () {
         $(".menu-page").addClass("d-none");
       }, 700);
 
-      $(".menu-button").attr("src", "./assets/img/menu.png");
+      $(".menu-button").attr("src", "./assets/img/menu/menu.png");
     }
   });
 
   // Comic
-  $(".comic-1")
-    .on("mouseover", function () {
-      $(".image-comic-1").css("scale", "1.1");
-    })
-    .on("mouseout", function () {
-      $(".image-comic-1").css("scale", "1");
-    });
-  $(".comic-2")
-    .on("mouseover", function () {
-      $(".image-comic-2").css("scale", "1.1");
-    })
-    .on("mouseout", function () {
-      $(".image-comic-2").css("scale", "1");
-    });
-  $(".comic-3")
-    .on("mouseover", function () {
-      $(".image-comic-3").css("scale", "1.1");
-    })
-    .on("mouseout", function () {
-      $(".image-comic-3").css("scale", "1");
-    });
-  $(".comic-4")
-    .on("mouseover", function () {
-      $(".image-comic-4").css("scale", "1.1");
-    })
-    .on("mouseout", function () {
-      $(".image-comic-4").css("scale", "1");
-    });
+  var lightbox = new FsLightbox();
+  $(".image-comic-1").on("click", function () {
+    lightbox.props.sources = [
+      "./assets/img/comic/series/eps4/a.jpg",
+      "./assets/img/comic/series/eps4/b.jpg",
+      "./assets/img/comic/series/eps4/c.jpg",
+      "./assets/img/comic/series/eps4/d.jpg",
+      "./assets/img/comic/series/eps4/e.jpg",
+    ];
+    lightbox.open();
+  });
+  $(".image-comic-2").on("click", function () {
+    var lightbox = new FsLightbox();
+    lightbox.props.sources = [
+      "./assets/img/comic/series/eps2/b.jpg",
+      "./assets/img/comic/series/eps2/c.jpg",
+      "./assets/img/comic/series/eps2/d.jpg",
+      "./assets/img/comic/series/eps2/e.jpg",
+      "./assets/img/comic/series/eps2/f.jpg",
+      "./assets/img/comic/series/eps2/g.jpg",
+    ];
+    lightbox.open();
+  });
+  $(".image-comic-3").on("click", function () {
+    var lightbox = new FsLightbox();
+    lightbox.props.sources = [
+      "./assets/img/comic/series/eps1/A.jpg",
+      "./assets/img/comic/series/eps1/B.jpg",
+      "./assets/img/comic/series/eps1/C.jpg",
+      "./assets/img/comic/series/eps1/D.jpg",
+      "./assets/img/comic/series/eps1/E.jpg",
+    ];
+    lightbox.open();
+  });
+  $(".image-comic-4").on("click", function () {
+    var lightbox = new FsLightbox();
+    lightbox.props.sources = [
+      "./assets/img/comic/series/eps3/a.jpg",
+      "./assets/img/comic/series/eps3/b.jpg",
+      "./assets/img/comic/series/eps3/c.jpg",
+    ];
+    lightbox.open();
+  });
+  $(".image-comic-5").on("click", function () {
+    window.open("https://www.instagram.com/indekos_/", "_blank");
+  });
+
+  // Social Media
+  $(".social-media__icon-instagram").on("click", function () {
+    window.open("https://www.instagram.com/indekos_/", "_blank");
+  });
 });
 
 $(window).on("load", function () {
