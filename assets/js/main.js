@@ -10,6 +10,53 @@ $(document).ready(function () {
       aboutParallax(event);
     });
 
+    $(window).scroll(function (e) {
+      let scroll = $(window).scrollTop() + $(window).height();
+      let content = $(".content").offset().top;
+      let about = $(".what-indekos").offset().top;
+      let progress = $(".loading-progress").offset().top;
+      let character = $(".image-comic-4").offset().top;
+      let teams = $("#teams__storyboard").offset().top;
+      let socialMedia = $(".footer-background").offset().top;
+
+      if (scroll - $(window).height() >= content) {
+        $(".page-progress").css("left", "0");
+      } else {
+        $(".page-progress").css("left", "-200px");
+      }
+
+      if (scroll >= about) {
+        $(".about-timeline")
+          .addClass("active")
+          .siblings("li")
+          .removeClass("active");
+      }
+      if (scroll >= progress) {
+        $(".progress-timeline")
+          .addClass("active")
+          .siblings("li")
+          .removeClass("active");
+      }
+      if (scroll >= character) {
+        $(".character-timeline")
+          .addClass("active")
+          .siblings("li")
+          .removeClass("active");
+      }
+      if (scroll >= teams) {
+        $(".teams-timeline")
+          .addClass("active")
+          .siblings("li")
+          .removeClass("active");
+      }
+      if (scroll >= socialMedia) {
+        $(".sosmed-timeline")
+          .addClass("active")
+          .siblings("li")
+          .removeClass("active");
+      }
+    });
+
     $(document).mousemove(function (e) {
       $("#tooltip").css({
         left: e.pageX,
@@ -108,6 +155,8 @@ $(document).ready(function () {
         $(".social-media__hover").addClass("d-none");
       });
   } else {
+    $(".page-progress").addClass("d-none");
+
     $(".pre-production__doni")
       .on("mouseover", function (e) {
         $("#tooltip").css({
@@ -169,19 +218,13 @@ $(document).ready(function () {
       });
   }
 
-  $(document).keyup(function (e) {
-    if (e.key === "Escape") {
-      $(".menu-button").trigger("click");
-    }
-  });
-
   $(".menu-1").on("click", function () {
     setTimeout(() => {
       $(".menu-button").trigger("click");
     }, 1);
     $([document.documentElement, document.body]).animate(
       {
-        scrollTop: $("#about").offset().top,
+        scrollTop: $(".what-indekos").offset().top,
       },
       500
     );
@@ -214,7 +257,7 @@ $(document).ready(function () {
     }, 1);
     $([document.documentElement, document.body]).animate(
       {
-        scrollTop: $("#teams").offset().top,
+        scrollTop: $("#teams__ceo").offset().top,
       },
       500
     );
@@ -226,6 +269,60 @@ $(document).ready(function () {
     $([document.documentElement, document.body]).animate(
       {
         scrollTop: $("#social-medias").offset().top,
+      },
+      500
+    );
+  });
+
+  $(".about-timeline").on("click", function () {
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $(".what-indekos").offset().top,
+      },
+      500
+    );
+  });
+
+  $(".progress-timeline").on("click", function () {
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#progress").offset().top,
+      },
+      500
+    );
+  });
+
+  $(".character-timeline").on("click", function () {
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#character").offset().top,
+      },
+      500
+    );
+  });
+
+  $(".teams-timeline").on("click", function () {
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#teams__ceo").offset().top,
+      },
+      500
+    );
+  });
+
+  $(".sosmed-timeline").on("click", function () {
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $("#social-medias").offset().top,
+      },
+      500
+    );
+  });
+
+  $(".back__to-top").on("click", function () {
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: 0,
       },
       500
     );

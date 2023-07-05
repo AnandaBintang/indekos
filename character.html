@@ -3,47 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indekos Game</title>
-
-    <link
-      rel="shortcut icon"
-      href="./assets/icon/favicon.ico"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="./assets/css/plugins/bootstrap.css" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="preload" href="./assets/img/preloader.png" as="image" />
-
-    <style>
-      .character-container img {
-        position: absolute;
-        width: 50%;
-      }
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/character-style.css" />
   </head>
   <body>
-    <div id="preloader">
-      <div class="d-flex justify-content-center align-items-center">
-        <img id="image-loader" src="./assets/img/preloader.png" alt="" />
+    <!-- slider container -->
+    <div class="slider-container">
+      <!-- slider items -->
+      <div class="slider-items">
+        <li class="item-1">
+          <img src="./assets/img/character/roy/main.png" alt="roy" />
+        </li>
+        <li class="item-2">
+          <img src="./assets/img/character/doni/siluet.png" alt="doni" />
+        </li>
+        <li class="item-3">
+          <img src="./assets/img/character/ibu-kos/siluet.png" alt="ibu-kos" />
+        </li>
+        <li class="item-4">
+          <img src="./assets/img/character/dosen/siluet.png" alt="dosen" />
+        </li>
+      </div>
+      <img
+        src="./assets/img/character/additional-items/doss.png"
+        style="position: absolute; width: 15%; top: 50%; z-index: 3"
+        class="someElement"
+        alt=""
+      />
+
+      <!-- slider navigation -->
+      <div class="slider-navigation">
+        <button class="slider-nav prev"></button>
+        <button class="slider-nav next"></button>
+      </div>
+
+      <!-- slider dots -->
+      <div class="slider-dots">
+        <ul>
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     </div>
 
-    <div class="character-container">
-      <img src="./assets/img/character/roy/nametag.png" alt="" />
-      <img class="roy" src="./assets/img/character/roy/siluet.png" alt="" />
+    <div class="nametag-container">
+      <img
+        src="./assets/img/character/roy/nametag.png"
+        alt="nametag"
+        class="character-name"
+      />
     </div>
 
     <script src="./assets/js/plugins/jquery.js"></script>
-    <script src="./assets/js/plugins/bootstrap.js"></script>
-    <script src="./assets/js/main.js"></script>
-    <script>
-      $(".roy")
-        .on("mouseover", function () {
-          $(this).attr("src", "./assets/img/character/roy/main.png");
-        })
-        .on("mouseout", function () {
-          $(this).attr("src", "./assets/img/character/roy/siluet.png");
-        });
-    </script>
+    <script src="./assets//js/app.js"></script>
   </body>
 </html>
