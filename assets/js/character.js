@@ -1,5 +1,4 @@
 const slider_items = $(".slider-items li");
-const slider_dots = $(".slider-dots li");
 const nav_next = $(".slider-nav.next");
 const nav_prev = $(".slider-nav.prev");
 
@@ -17,16 +16,9 @@ function setItemSlider(index) {
         .removeClass(`item-${i}`)
         .addClass(`item-${offset + 1}`);
     }
-
-    slider_dots
-      .eq(selected_item)
-      .addClass("active")
-      .siblings("li")
-      .removeClass("active");
   });
   let title = $(".item-1 img").attr("alt");
   $(".item-1 img").attr("src", `./assets/img/character/${title}/main.png`);
-
   $(".character-name").addClass("anim__scale-out-center");
 
   setTimeout(() => {
@@ -49,10 +41,6 @@ function setItemSlider(index) {
 }
 
 slider_items.click(function () {
-  setItemSlider($(this).index());
-});
-
-slider_dots.click(function () {
   setItemSlider($(this).index());
 });
 
