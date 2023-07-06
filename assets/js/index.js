@@ -1,5 +1,3 @@
-var position = {};
-
 $(document).ready(function () {
   // Responsive Parallax
   const mediaQuery = window.matchMedia("(min-width: 992px)");
@@ -218,23 +216,6 @@ $(document).ready(function () {
       });
   }
 
-  position = {
-    top_1: "10%",
-    top_2: "55%",
-    top_3: "-45%",
-    top_4: "100%",
-    top_5: "-30%",
-    left_1: "51%",
-    left_2: "51%",
-    left_3: "70%",
-    left_4: "63%",
-    left_5: "57%",
-    idle_top: "40%",
-    idle_left: "70%",
-  };
-
-  characterHover(position);
-
   // Comic
   $(".image-comic-1").on("click", function () {
     var lightbox = new FsLightbox();
@@ -331,60 +312,4 @@ function aboutParallax(e) {
       `translate(${amountMovedX * -0.3}px, ${amountMovedY * -0.3}px)`
     );
   }
-}
-
-function characterHover(position) {
-  $(".character-kos")
-    .on("mouseover", function () {
-      $(".character__additional").removeClass("d-none");
-
-      setTimeout(() => {
-        $(".character__additional-1").css({
-          top: position.top_1,
-          left: position.left_1,
-        });
-        $(".character__additional-2").css({
-          top: position.top_2,
-          left: position.left_2,
-        });
-        $(".character__additional-3").css({
-          top: position.top_3,
-          left: position.left_3,
-        });
-        $(".character__additional-4").css({
-          top: position.top_4,
-          left: position.left_4,
-        });
-        $(".character__additional-5").css({
-          top: position.top_5,
-          left: position.left_5,
-        });
-      }, 50);
-    })
-    .on("mouseout", function () {
-      $(".character__additional-1").css({
-        top: position.idle_top,
-        left: position.idle_left,
-      });
-      $(".character__additional-2").css({
-        top: position.idle_top,
-        left: position.idle_left,
-      });
-      $(".character__additional-3").css({
-        top: position.idle_top,
-        left: position.idle_left,
-      });
-      $(".character__additional-4").css({
-        top: position.idle_top,
-        left: position.idle_left,
-      });
-      $(".character__additional-5").css({
-        top: position.idle_top,
-        left: position.idle_left,
-      });
-
-      setTimeout(() => {
-        $(".character__additional").addClass("d-none");
-      }, 100);
-    });
 }

@@ -12,6 +12,9 @@ html,
 body {
   min-width: 100vw;
   width: 100%;
+  background-image: url(../img/background/character-page-background.png);
+  background-size: contain;
+  overflow: hidden;
 }
 
 body {
@@ -21,6 +24,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+nav img {
+  top: 5%;
+  left: 87%;
+  width: 10%;
 }
 
 .character-background {
@@ -56,26 +65,9 @@ body {
   width: 100%;
   height: auto;
   margin-top: 10%;
-  /* transform: scale(1.3) rotate(25deg); */
   transform: scale(1.3);
   transition: 0.25s;
 }
-
-/* .slider-items li::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-image: url(../images/shadow.png);
-  background-repeat: no-repeat;
-  background-position: 50% 85%;
-  background-size: 100% auto;
-  transition: 0.3s;
-} */
 
 .slider-items li:hover::after {
   width: 90%;
@@ -83,7 +75,6 @@ body {
 
 .slider-items li.item-1 {
   z-index: 2;
-  cursor: url("../img/link-cursor.png"), auto !important;
   transform: translateX(-50%) scale(1) translate3d(0, 0, 0);
 }
 
@@ -137,32 +128,6 @@ body {
   animation: bounce-horizontal-2 1s ease-in-out infinite;
 }
 
-/* .slider-dots {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 3;
-}
-
-.slider-dots ul {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5%;
-}
-
-.slider-dots ul li {
-  width: 10px;
-  height: 10px;
-  display: inline-block;
-  border-radius: 50%;
-  background-color: #ccc;
-  margin: 0 15px;
-}
-
-.slider-dots ul li.active {
-  background-color: #fc4a03;
-} */
-
 .nametag-container {
   position: absolute;
   width: 50%;
@@ -176,14 +141,16 @@ body {
   margin: auto;
 }
 
-h1 {
+.detail-container {
   position: absolute;
-  color: #fcb703;
-  top: 80%;
-  left: 5%;
-  font-family: "bakso_sapiregular";
-  font-size: 4rem;
-  -webkit-text-stroke: 2px black;
+  width: 55%;
+  top: 51%;
+  left: 3%;
+  z-index: 2;
+}
+
+.detail-container img {
+  width: 50%;
 }
 
 .anim__scale-in-center {

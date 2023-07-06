@@ -74,6 +74,10 @@ $(document).ready(function () {
     }
   });
 
+  $(".back-button").on("click", function () {
+    history.back();
+  });
+
   $(".menu-1").on("click", function () {
     setTimeout(() => {
       $(".menu-button").trigger("click");

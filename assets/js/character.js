@@ -20,6 +20,7 @@ function setItemSlider(index) {
   let title = $(".item-1 img").attr("alt");
   $(".item-1 img").attr("src", `./assets/img/character/${title}/main.png`);
   $(".character-name").addClass("anim__scale-out-center");
+  $(".detail-container").addClass("anim__slide-out-left");
 
   setTimeout(() => {
     $(".character-name").attr(
@@ -28,7 +29,16 @@ function setItemSlider(index) {
     );
     $(".character-name").removeClass("anim__scale-out-center");
     $(".character-name").addClass("anim__scale-in-center");
+
+    $(".detail-container img").attr(
+      "src",
+      `./assets/img/character/${title}/detail.png`
+    );
+    $(".detail-container").removeClass("anim__slide-out-left");
+    $(".detail-container").addClass("anim__slide-in-left");
   }, 300);
+
+  $(".detail-container").removeClass("anim__slide-in-left");
   $(".character-name").removeClass("anim__scale-in-center");
 
   for (let i = 2; i <= 4; i++) {

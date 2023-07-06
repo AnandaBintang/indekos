@@ -453,9 +453,10 @@ nav img {
 }
 
 #character .character-kos {
+  min-height: 40rem;
   position: relative;
   top: 5%;
-  left: 30%;
+  left: 28%;
   display: block;
   z-index: 2;
   width: 30%;
@@ -463,20 +464,15 @@ nav img {
   transition: all 0.2s;
 }
 
-#character .character-kos:hover {
-  transform: scale(1.1);
+#character .character-kos img {
+  position: absolute;
+  top: -10%;
+  width: 100%;
 }
 
-#character .character__additional img {
-  position: absolute;
-  display: block;
-  width: 10%;
-  z-index: 1;
-  top: 40%;
-  left: 70%;
-  transform: rotateZ(20deg);
-  transition: all 0.25s;
-  /* animation: floating 7s linear 0s infinite reverse both; */
+#character .character-kos:hover > .character__lighting {
+  -webkit-animation: shake-lr 10s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: shake-lr 10s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
 
 /* Staff */
@@ -723,7 +719,7 @@ nav img {
   position: absolute;
   height: 180%;
   top: -30%;
-  left: -60%;
+  left: -80%;
 }
 
 .page-progress ul {
@@ -736,6 +732,7 @@ nav img {
   justify-content: space-around;
   flex-flow: column;
   position: relative;
+  left: 30%;
   z-index: 99;
 }
 
@@ -744,7 +741,7 @@ nav img {
   text-decoration: none;
   height: 15px;
   width: 15px;
-  background: #fcb703;
+  background: #fc4a03;
   color: white;
   border-radius: 50%;
   text-align: center;
@@ -756,7 +753,7 @@ nav img {
 }
 
 .page-progress ul li.active {
-  background: #fc4a03;
+  background: #009e08;
   transition: 0.2s;
 }
 
@@ -773,9 +770,9 @@ nav img {
 .page-progress ul .back__to-top {
   position: absolute;
   top: 102%;
-  height: 30px;
-  width: 30px;
-  background-color: #fc4a03;
+  height: 35px;
+  width: 35px;
+  background-color: #009e08;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1069,6 +1066,40 @@ nav img {
   }
 }
 
+@keyframes shake-lr {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  10% {
+    -webkit-transform: rotate(8deg);
+    transform: rotate(8deg);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  80% {
+    -webkit-transform: rotate(-8deg);
+    transform: rotate(-8deg);
+  }
+  90% {
+    -webkit-transform: rotate(8deg);
+    transform: rotate(8deg);
+  }
+}
+
 @media (min-width: 992px) {
   #about .about-indekos {
     position: absolute;
@@ -1159,5 +1190,9 @@ nav img {
 
   #progress .loading-progress .progress-title span {
     font-size: 0.3rem;
+  }
+
+  #character .character-kos {
+    min-height: 10rem;
   }
 }
