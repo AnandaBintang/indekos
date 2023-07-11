@@ -64,3 +64,22 @@ nav_prev.click(function () {
     selected_item >= 1 ? --selected_item : slider_items.length - 1;
   setItemSlider(selected_item);
 });
+
+const mediaQueryPc = window.matchMedia("(min-width: 992px)");
+const mediaQueryTab = window.matchMedia("(min-width: 500px)");
+if (mediaQueryPc.matches) {
+  $(".character-background").attr(
+    "src",
+    "./assets/img/background/character-border.png"
+  );
+} else if (mediaQueryTab.matches) {
+  $(".character-background").attr(
+    "src",
+    "./assets/img/background/character-border-tablet.png"
+  );
+} else {
+  $(".character-background").attr(
+    "src",
+    "./assets/img/background/character-border-mobile.png"
+  );
+}
