@@ -20,9 +20,9 @@ $(document).ready(function () {
       let socialMedia = $(".footer-background").offset().top;
 
       if (scroll - $(window).height() >= content) {
-        $(".page-progress").css("left", "0");
+        $(".page-progress").css("top", "20%");
       } else {
-        $(".page-progress").css("left", "-200px");
+        $(".page-progress").css("top", "0%");
       }
 
       if (scroll >= about) {
