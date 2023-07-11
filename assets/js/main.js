@@ -117,7 +117,7 @@ $(document).ready(function () {
     }, 1);
     $([document.documentElement, document.body]).animate(
       {
-        scrollTop: $("#teams__ceo").offset().top,
+        scrollTop: $("#teams").offset().top,
       },
       500
     );
@@ -164,7 +164,7 @@ $(document).ready(function () {
   $(".teams-timeline").on("click", function () {
     $([document.documentElement, document.body]).animate(
       {
-        scrollTop: $("#teams__ceo").offset().top,
+        scrollTop: $("#teams").offset().top,
       },
       500
     );

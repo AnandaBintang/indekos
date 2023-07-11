@@ -1,3 +1,5 @@
+var reverse = false;
+
 $(document).ready(function () {
   // Responsive Parallax
   const mediaQuery = window.matchMedia("(min-width: 992px)");
@@ -14,7 +16,7 @@ $(document).ready(function () {
       let about = $(".what-indekos").offset().top;
       let progress = $(".loading-progress").offset().top;
       let character = $(".image-comic-4").offset().top;
-      let teams = $("#teams__storyboard").offset().top;
+      let teams = $("#teams").offset().top;
       let socialMedia = $(".footer-background").offset().top;
 
       if (scroll - $(window).height() >= content) {
@@ -41,7 +43,7 @@ $(document).ready(function () {
           .siblings("li")
           .removeClass("active");
       }
-      if (scroll >= teams) {
+      if (scroll - $(window).height() >= teams) {
         $(".teams-timeline")
           .addClass("active")
           .siblings("li")
@@ -126,6 +128,16 @@ $(document).ready(function () {
           $("#tooltip").removeAttr("src");
         });
     });
+
+    // Teams
+    setInterval(() => {
+      if (reverse) {
+        $(".midground").css("transform", "rotateY(0deg)");
+      } else {
+        $(".midground").css("transform", "rotateY(180deg)");
+      }
+      reverse = !reverse;
+    }, 15000);
 
     // Social Media
     $(".social-media__phone-container")
