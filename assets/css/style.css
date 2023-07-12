@@ -44,15 +44,16 @@ body {
 
 /* Nav */
 nav img {
-  position: absolute;
+  position: fixed;
   width: 12%;
-  top: 8%;
+  top: 5%;
   left: 4%;
   z-index: 99;
 }
 
 .menu-page {
   position: fixed;
+  top: 35%;
   width: 100vw;
   height: 100vh;
   z-index: 95;
@@ -83,8 +84,12 @@ nav img {
   position: relative;
   display: block;
   z-index: 97;
-  width: 20%;
+  width: 35%;
   transition: all 0.3s;
+}
+
+.menu-page img {
+  object-fit: cover;
 }
 
 .menu-page .nav-menu img:hover {
@@ -132,16 +137,18 @@ nav img {
   -o-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
   position: absolute;
-  top: 44%;
+  top: 15%;
   left: 50%;
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  min-height: 0;
   z-index: -100;
   opacity: 0.3;
 }
 
 .jumbotron {
-  height: 100vh;
+  height: auto;
   text-align: center;
   color: #000;
   overflow: hidden;
@@ -151,7 +158,7 @@ nav img {
 .header-border {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  height: auto;
   width: 100%;
   pointer-events: none;
 }
@@ -160,8 +167,8 @@ nav img {
   position: absolute;
   width: 45%;
   height: auto;
-  top: 17%;
-  left: 56%;
+  top: 6%;
+  left: 50%;
   z-index: 3;
 }
 
@@ -171,7 +178,7 @@ nav img {
   position: absolute;
   width: 60%;
   height: auto;
-  top: 10%;
+  top: 7%;
   left: 1%;
   z-index: 3;
 }
@@ -205,7 +212,7 @@ nav img {
 #about .about-border {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  height: auto;
   width: 100%;
   pointer-events: none;
   z-index: 3;
@@ -214,7 +221,7 @@ nav img {
 #about .what-indekos {
   position: absolute;
   width: 35%;
-  top: 10%;
+  top: 25%;
   left: 20%;
   transform: rotate(-7deg);
   z-index: 4;
@@ -233,14 +240,17 @@ nav img {
 
 #about .about-indekos img {
   position: absolute;
-  width: 100%;
+  left: 18%;
+  top: 10%;
+  width: 68%;
+  z-index: 3;
 }
 
 #about .about-indekos .demo-video {
   position: absolute;
-  transform: translateY(165%) rotateZ(350deg);
-  left: 75%;
-  width: 20%;
+  transform: translateY(145%) rotateZ(350deg);
+  left: 65%;
+  width: 15%;
   pointer-events: all;
 }
 
@@ -341,7 +351,7 @@ nav img {
 
 #progress .loading-progress .progress-title span {
   font-family: "bakso_sapiregular";
-  font-size: 1.5rem;
+  font-size: 0.3rem;
   position: absolute;
   top: 100%;
   color: #fff;
@@ -453,7 +463,7 @@ nav img {
 }
 
 #character .character-kos {
-  min-height: 40rem;
+  min-height: 10rem;
   position: relative;
   top: 5%;
   left: 28%;
@@ -466,8 +476,9 @@ nav img {
 
 #character .character-kos img {
   position: absolute;
-  top: -10%;
-  width: 100%;
+  top: -20%;
+  left: -10%;
+  width: 120%;
 }
 
 #character .character-kos:hover > .character__lighting {
@@ -519,7 +530,7 @@ nav img {
 
 #social-medias .phone-container .social-media__finger {
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 27%;
   width: 35%;
   z-index: 4;
@@ -584,13 +595,14 @@ footer .footer-background {
 footer span {
   position: relative;
   font-family: "bakso_sapiregular";
-  font-size: 1.5rem;
+  font-size: 0.4rem;
   text-align: center;
-  top: 40%;
+  top: -50%;
   z-index: 6;
 }
 
 footer span a {
+  font-size: 0.4rem;
   text-decoration: none;
 }
 
@@ -639,7 +651,6 @@ footer span a:hover {
   text-align: center;
   line-height: 40px;
   font-weight: bolder;
-  z-index: 99;
   transition: 0.2s;
   z-index: 99;
 }
@@ -670,6 +681,184 @@ footer span a:hover {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+}
+
+@media (min-width: 600px) {
+  #progress .loading-progress .progress-title span {
+    font-size: 0.5rem;
+  }
+
+  #character .character-kos {
+    min-height: 15rem;
+  }
+
+  /* Social Media */
+  footer span {
+    font-size: 0.8rem;
+  }
+
+  footer span a {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 769px) {
+  #about .about-indekos .demo-video {
+    transform: translateY(165%) rotateZ(350deg);
+    left: 65%;
+    top: -10%;
+    width: 20%;
+  }
+
+  #character .character-kos {
+    min-height: 15rem;
+  }
+
+  #character .comic-container .image-comic-1 {
+    transform: translateX(70%) translateZ(100%);
+  }
+
+  #character .comic-container .image-comic-2 {
+    transform: translateX(170%);
+  }
+
+  #character .comic-container .image-comic-3 {
+    transform: translateX(70%) translateY(100%);
+  }
+
+  #character .comic-container .image-comic-4 {
+    transform: translateX(170%) translateY(100%);
+  }
+
+  #character .comic-container .image-comic-5 {
+    transform: translateX(160%);
+    width: 20%;
+  }
+}
+
+@media (min-width: 825px) {
+  #character .character-kos {
+    min-height: 20rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  nav img {
+    position: absolute;
+    top: 8%;
+  }
+
+  .menu-page {
+    top: 0%;
+  }
+
+  .menu-page .nav-menu img {
+    width: 20%;
+  }
+
+  .menu-page .nav-menu img:hover {
+    scale: 1.1;
+  }
+
+  /* Jumbotron */
+  #desktop-video {
+    top: 44%;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+    opacity: 0.3;
+  }
+
+  .jumbotron {
+    height: 100vh;
+  }
+
+  .header-border {
+    height: 100vh;
+  }
+
+  .jumbotron .row .main-visual {
+    top: 17%;
+    left: 56%;
+  }
+
+  .jumbotron .row .logo {
+    top: 10%;
+  }
+
+  /* About */
+  #about .about-border {
+    height: 100vh;
+  }
+
+  #about .what-indekos {
+    top: 33%;
+  }
+
+  #about .about-indekos {
+    position: absolute;
+    left: 15%;
+    top: 23%;
+    width: 100%;
+    z-index: 3;
+  }
+
+  #about .about-indekos img {
+    position: absolute;
+    left: 0%;
+  }
+
+  #about .about-indekos .demo-video {
+    transform: translateY(165%) rotateZ(350deg);
+    left: 50%;
+    width: 15%;
+  }
+
+  /* Progress */
+  #progress .loading-progress .progress-title span {
+    font-size: 1rem;
+  }
+
+  /* Staff */
+  #teams .midground {
+    left: -25%;
+    animation: walking 60s linear infinite;
+  }
+
+  /* Social Media */
+  footer span {
+    font-size: 1rem;
+  }
+
+  footer span a {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  #about .what-indekos {
+    top: 15%;
+  }
+
+  #about .about-indekos {
+    top: 0%;
+  }
+
+  #progress .loading-progress .progress-title span {
+    font-size: 1.5rem;
+  }
+
+  #character .character-kos {
+    min-height: 40rem;
+  }
+
+  footer span {
+    font-size: 1.5rem;
+  }
+
+  footer span a {
+    font-size: 1.5rem;
+  }
 }
 
 /* Keyframes */
@@ -1001,111 +1190,5 @@ footer span a:hover {
   }
   100% {
     left: -25%;
-  }
-}
-
-@media (min-width: 992px) {
-  #about .about-indekos {
-    position: absolute;
-  }
-
-  #teams .midground {
-    left: -25%;
-    animation: walking 30s linear infinite;
-  }
-}
-
-@media (max-width: 992px) {
-  nav img {
-    position: fixed;
-    width: 12%;
-    top: 5%;
-    left: 4%;
-    z-index: 99;
-  }
-
-  .menu-page .nav-menu {
-    top: 35%;
-  }
-
-  .menu-page .nav-menu img {
-    width: 35%;
-  }
-
-  .menu-page img {
-    object-fit: cover;
-  }
-
-  .jumbotron {
-    height: auto;
-  }
-
-  #desktop-video {
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -o-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    width: 100%;
-    height: auto;
-    min-width: 0;
-    min-height: 0;
-    z-index: -100;
-    opacity: 0.3;
-  }
-
-  .header-border {
-    height: auto;
-  }
-
-  .jumbotron .row .main-visual {
-    top: 6%;
-    left: 50%;
-  }
-
-  .jumbotron .row .logo {
-    top: 7%;
-    left: 1%;
-  }
-
-  #about .about-border {
-    height: auto;
-  }
-
-  #about .what-indekos {
-    width: 35%;
-    top: 25%;
-    transform: rotate(-7deg);
-    z-index: 4;
-  }
-
-  #about .about-indekos img {
-    position: absolute;
-    left: 18%;
-    top: 10%;
-    width: 68%;
-    z-index: 3;
-  }
-
-  #about .about-indekos .demo-video {
-    position: absolute;
-    transform: translateY(145%) rotateZ(350deg);
-    left: 65%;
-    width: 15%;
-  }
-
-  #progress .loading-progress .progress-title span {
-    font-size: 0.3rem;
-  }
-
-  #character .character-kos {
-    min-height: 10rem;
-  }
-
-  footer span {
-    font-size: 0.4rem;
   }
 }

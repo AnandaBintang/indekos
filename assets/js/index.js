@@ -137,7 +137,7 @@ $(document).ready(function () {
         $(".midground").css("transform", "rotateY(180deg)");
       }
       reverse = !reverse;
-    }, 15000);
+    }, 30000);
 
     // Social Media
     $(".social-media__phone-container")
@@ -149,13 +149,15 @@ $(document).ready(function () {
             top: (e.pageY - $("#social-medias").offset().top) * (110 / 100),
           });
         });
+        disableScroll();
       })
       .on("mouseout", function () {
         $(".social-media__finger").css({
           transition: "all 1s ease-in-out",
           left: "27%",
-          top: "20%",
+          top: "10%",
         });
+        enableScroll();
       });
     $(".social-media__icon-instagram")
       .on("mouseover", function () {
