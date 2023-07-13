@@ -1,4 +1,10 @@
-var reverse = false;
+var midground = $(".midground");
+var lebarViewport = $(window).width();
+var xPos = -340;
+var yPos = 0;
+var time = 0;
+var randomValue = Math.random() * (5000 - 100) + 1;
+var isRun = false;
 
 $(document).ready(function () {
   // Responsive Parallax
@@ -11,13 +17,14 @@ $(document).ready(function () {
     });
 
     $(window).scroll(function (e) {
-      let scroll = $(window).scrollTop() + $(window).height();
-      let content = $(".content").offset().top;
-      let about = $(".what-indekos").offset().top;
-      let progress = $(".loading-progress").offset().top;
-      let character = $(".image-comic-4").offset().top;
-      let teams = $("#teams").offset().top;
-      let socialMedia = $(".footer-background").offset().top;
+      let scroll, content, about, progress, character, teams, socialMedia;
+      scroll = $(window).scrollTop() + $(window).height();
+      content = $(".content").offset().top;
+      about = $(".what-indekos").offset().top;
+      progress = $(".loading-progress").offset().top;
+      character = $(".image-comic-4").offset().top;
+      teams = $("#teams").offset().top;
+      socialMedia = $(".footer-background").offset().top;
 
       if (scroll - $(window).height() >= content) {
         $(".page-progress").css("top", "20%");
@@ -48,6 +55,14 @@ $(document).ready(function () {
           .addClass("active")
           .siblings("li")
           .removeClass("active");
+
+        if (!isRun) {
+          console.log(isRun);
+          isRun = true;
+          setTimeout(() => {
+            walkingAnimation();
+          }, randomValue);
+        }
       }
       if (scroll >= socialMedia) {
         $(".sosmed-timeline")
@@ -128,16 +143,6 @@ $(document).ready(function () {
           $("#tooltip").removeAttr("src");
         });
     });
-
-    // Teams
-    setInterval(() => {
-      if (reverse) {
-        $(".midground").css("transform", "rotateY(0deg)");
-      } else {
-        $(".midground").css("transform", "rotateY(180deg)");
-      }
-      reverse = !reverse;
-    }, 30000);
 
     // Social Media
     $(".social-media__phone-container")
@@ -327,3 +332,21 @@ function aboutParallax(e) {
     );
   }
 }
+
+function walkingAnimation() {
+  xPos += 4;
+  yPos = Math.sin(time * 0.1) * 10;
+  time++;
+  midground.css("transform", "translate(" + xPos + "px, " + yPos + "px)");
+  var rect = midground[0].getBoundingClientRect();
+  if (rect.right < 0 || rect.left > lebarViewport) {
+    midground.remove();
+    return;
+  }
+
+  requestAnimationFrame(walkingAnimation);
+}
+
+$(window).resize(function () {
+  lebarViewport = $(window).width();
+});

@@ -497,8 +497,16 @@ nav img {
   z-index: 1;
 }
 
+#teams .sign {
+  top: 55%;
+  left: 8%;
+  width: 20%;
+  transform: rotateZ(-10deg);
+}
+
 #teams .midground {
   top: 50%;
+  transform: translateX(-340px);
   width: 20%;
   z-index: 3;
 }
@@ -602,6 +610,7 @@ footer span {
 }
 
 footer span a {
+  color: #dfdfdf;
   font-size: 0.4rem;
   text-decoration: none;
 }
@@ -645,7 +654,7 @@ footer span a:hover {
   text-decoration: none;
   height: 15px;
   width: 15px;
-  background: #fc4a03;
+  background: #fff;
   color: white;
   border-radius: 50%;
   text-align: center;
@@ -656,7 +665,7 @@ footer span a:hover {
 }
 
 .page-progress ul li.active {
-  background: #009e08;
+  background: #a31f1f;
   transition: 0.2s;
 }
 
@@ -666,7 +675,7 @@ footer span a:hover {
   left: 28px;
   height: 80%;
   width: 5px;
-  background-color: #2c2c2c;
+  background-color: #383838;
   border-radius: 50px;
 }
 
@@ -675,12 +684,16 @@ footer span a:hover {
   top: 102%;
   height: 35px;
   width: 35px;
-  background-color: #009e08;
+  background-color: #a31f1f;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1rem;
+}
+
+.page-progress ul .back__to-top i {
+  color: #fff;
 }
 
 @media (min-width: 600px) {
@@ -821,8 +834,8 @@ footer span a:hover {
 
   /* Staff */
   #teams .midground {
-    left: -25%;
-    animation: walking 60s linear infinite;
+    left: 0%;
+    top: 50%;
   }
 
   /* Social Media */
@@ -1178,17 +1191,5 @@ footer span a:hover {
   90% {
     -webkit-transform: rotate(8deg);
     transform: rotate(8deg);
-  }
-}
-
-@keyframes walking {
-  0% {
-    left: -25%;
-  }
-  50% {
-    left: 100%;
-  }
-  100% {
-    left: -25%;
   }
 }

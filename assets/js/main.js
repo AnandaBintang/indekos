@@ -1,3 +1,61 @@
+var menuButton = {
+  menu_1: {
+    isClicked: ".menu-1",
+    scrollTo: ".what-indekos",
+    waitFor: true,
+  },
+  menu_2: {
+    isClicked: ".menu-2",
+    scrollTo: "#progress",
+    waitFor: true,
+  },
+  menu_3: {
+    isClicked: ".menu-3",
+    scrollTo: "#character",
+    waitFor: true,
+  },
+  menu_4: {
+    isClicked: ".menu-4",
+    scrollTo: "#teams",
+    waitFor: true,
+  },
+  menu_5: {
+    isClicked: ".menu-5",
+    scrollTo: "#social-medias",
+    waitFor: true,
+  },
+  timeline_1: {
+    isClicked: ".about-timeline",
+    scrollTo: ".what-indekos",
+    waitFor: false,
+  },
+  timeline_2: {
+    isClicked: ".progress-timeline",
+    scrollTo: "#progress",
+    waitFor: false,
+  },
+  timeline_3: {
+    isClicked: ".character-timeline",
+    scrollTo: "#character",
+    waitFor: false,
+  },
+  timeline_4: {
+    isClicked: ".teams-timeline",
+    scrollTo: "#teams",
+    waitFor: false,
+  },
+  timeline_5: {
+    isClicked: ".sosmed-timeline",
+    scrollTo: "#social-medias",
+    waitFor: false,
+  },
+  back_top: {
+    isClicked: ".back__to-top",
+    scrollTo: "body",
+    waitFor: false,
+  },
+};
+
 $(window).on("load", function () {
   // Preloader
   $("#preloader").css({
@@ -17,43 +75,38 @@ $(document).ready(function () {
       setTimeout(() => {
         $(".menu-page").removeClass("d-none");
       }, 1);
-
       $(".top-menu").addClass("anim__slide-in-bottom");
       $(".bottom-menu").addClass("anim__slide-in-bottom");
-
       $(".top-menu").removeClass("anim__slide-out-bottom");
       $(".bottom-menu").removeClass("anim__slide-out-bottom");
-
-      $(".menu-1").addClass("anim__slide-in-left");
-      $(".menu-2").addClass("anim__slide-in-right");
-      $(".menu-3").addClass("anim__slide-in-left");
-      $(".menu-4").addClass("anim__slide-in-right");
-      $(".menu-5").addClass("anim__slide-in-left");
-
-      $(".menu-1").removeClass("anim__slide-out-left");
-      $(".menu-2").removeClass("anim__slide-out-right");
-      $(".menu-3").removeClass("anim__slide-out-left");
-      $(".menu-4").removeClass("anim__slide-out-right");
-      $(".menu-5").removeClass("anim__slide-out-left");
-
+      for (var i = 1; i <= 5; i++) {
+        let animIn, animOut;
+        if (i % 2 == 0) {
+          animIn = "anim__slide-in-right";
+          animOut = "anim__slide-out-right";
+        } else {
+          animIn = "anim__slide-in-left";
+          animOut = "anim__slide-out-left";
+        }
+        $(`.menu-${i}`).addClass(animIn);
+        $(`.menu-${i}`).removeClass(animOut);
+      }
       $(".menu-page").addClass("blurred");
-
       $("body").css("overflowY", "hidden");
-
       $(".menu-button").attr("src", "./assets/img/menu/exit.png");
     } else {
-      $(".menu-1").addClass("anim__slide-out-left");
-      $(".menu-2").addClass("anim__slide-out-right");
-      $(".menu-3").addClass("anim__slide-out-left");
-      $(".menu-4").addClass("anim__slide-out-right");
-      $(".menu-5").addClass("anim__slide-out-left");
-
-      $(".menu-1").removeClass("anim__slide-in-left");
-      $(".menu-2").removeClass("anim__slide-in-right");
-      $(".menu-3").removeClass("anim__slide-in-left");
-      $(".menu-4").removeClass("anim__slide-in-right");
-      $(".menu-5").removeClass("anim__slide-in-left");
-
+      for (var i = 1; i <= 5; i++) {
+        let animOut, animIn;
+        if (i % 2 == 0) {
+          animIn = "anim__slide-in-right";
+          animOut = "anim__slide-out-right";
+        } else {
+          animIn = "anim__slide-in-left";
+          animOut = "anim__slide-out-left";
+        }
+        $(`.menu-${i}`).addClass(animOut);
+        $(`.menu-${i}`).removeClass(animIn);
+      }
       setTimeout(() => {
         $(".top-menu").removeClass("anim__slide-in-bottom");
         $(".bottom-menu").removeClass("anim__slide-in-bottom");
@@ -65,11 +118,9 @@ $(document).ready(function () {
 
         $("body").css("overflowY", "auto");
       }, 200);
-
       setTimeout(() => {
         $(".menu-page").addClass("d-none");
       }, 700);
-
       $(".menu-button").attr("src", "./assets/img/menu/menu.png");
     }
   });
@@ -78,122 +129,15 @@ $(document).ready(function () {
     history.back();
   });
 
-  $(".menu-1").on("click", function () {
-    setTimeout(() => {
-      $(".menu-button").trigger("click");
-    }, 1);
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $(".what-indekos").offset().top,
-      },
-      500
-    );
-  });
-  $(".menu-2").on("click", function () {
-    setTimeout(() => {
-      $(".menu-button").trigger("click");
-    }, 1);
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#progress").offset().top,
-      },
-      500
-    );
-  });
-  $(".menu-3").on("click", function () {
-    setTimeout(() => {
-      $(".menu-button").trigger("click");
-    }, 1);
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#character").offset().top,
-      },
-      500
-    );
-  });
-  $(".menu-4").on("click", function () {
-    setTimeout(() => {
-      $(".menu-button").trigger("click");
-    }, 1);
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#teams").offset().top,
-      },
-      500
-    );
-  });
-  $(".menu-5").on("click", function () {
-    setTimeout(() => {
-      $(".menu-button").trigger("click");
-    }, 1);
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#social-medias").offset().top,
-      },
-      500
-    );
-  });
-
-  $(".about-timeline").on("click", function () {
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $(".what-indekos").offset().top,
-      },
-      500
-    );
-  });
-
-  $(".progress-timeline").on("click", function () {
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#progress").offset().top,
-      },
-      500
-    );
-  });
-
-  $(".character-timeline").on("click", function () {
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#character").offset().top,
-      },
-      500
-    );
-  });
-
-  $(".teams-timeline").on("click", function () {
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#teams").offset().top,
-      },
-      500
-    );
-  });
-
-  $(".sosmed-timeline").on("click", function () {
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: $("#social-medias").offset().top,
-      },
-      500
-    );
-  });
-
-  $(".back__to-top").on("click", function () {
-    $([document.documentElement, document.body]).animate(
-      {
-        scrollTop: 0,
-      },
-      500
-    );
+  Object.keys(menuButton).forEach(function (key) {
+    const value = menuButton[key];
+    menuClicked(value.isClicked, value.scrollTo, value.waitFor);
   });
 });
 
 function disableScroll() {
-  // Get the current page scroll position
   scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   (scrollLeft = window.pageXOffset || document.documentElement.scrollLeft),
-    // if any scroll is attempted, set this to the previous value
     (window.onscroll = function () {
       window.scrollTo(scrollLeft, scrollTop);
     });
@@ -201,4 +145,20 @@ function disableScroll() {
 
 function enableScroll() {
   window.onscroll = function () {};
+}
+
+function menuClicked(isClicked, scrollTo, waitFor) {
+  $(isClicked).on("click", function () {
+    if (waitFor) {
+      setTimeout(() => {
+        $(".menu-button").trigger("click");
+      }, 1);
+    }
+    $([document.documentElement, document.body]).animate(
+      {
+        scrollTop: $(scrollTo).offset().top,
+      },
+      500
+    );
+  });
 }
