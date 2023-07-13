@@ -1,147 +1,123 @@
-var midground = $(".midground");
+const midground = $(".midground");
 var lebarViewport = $(window).width();
 var xPos = -340;
 var yPos = 0;
 var time = 0;
 var randomValue = Math.random() * (5000 - 100) + 1;
 var isRun = false;
+const tooltip = {
+  pre: {
+    element: {
+      0: ".pre-production__doni",
+      1: ".pre-production__roy",
+    },
+    image: "pre-production.png",
+    animation: {
+      0: "pre-production__animation",
+      1: "pre-production__animation",
+    },
+  },
+  production: {
+    element: {
+      0: ".production__doni",
+      1: ".production__roy",
+    },
+    image: "production.png",
+    animation: {
+      0: "production__animation-2",
+      1: "production__animation-1",
+    },
+  },
+  post: {
+    element: {
+      0: ".post-production__doni",
+      1: null,
+    },
+    image: "post-production.png",
+    animation: {
+      0: "post-production__animation",
+      1: null,
+    },
+  },
+  launching: {
+    element: {
+      0: ".launching__roy",
+      1: null,
+    },
+    image: "launching.png",
+    animation: {
+      0: "launching__animation",
+      1: null,
+    },
+  },
+};
+const imageSets = [
+  {
+    selector: ".image-comic-1",
+    sources: [
+      "./assets/img/comic/series/eps1/1.jpg",
+      "./assets/img/comic/series/eps1/2.jpg",
+      "./assets/img/comic/series/eps1/3.jpg",
+      "./assets/img/comic/series/eps1/4.jpg",
+      "./assets/img/comic/series/eps1/5.jpg",
+    ],
+  },
+  {
+    selector: ".image-comic-2",
+    sources: [
+      "./assets/img/comic/series/eps2/1.jpg",
+      "./assets/img/comic/series/eps2/2.jpg",
+      "./assets/img/comic/series/eps2/3.jpg",
+      "./assets/img/comic/series/eps2/4.jpg",
+      "./assets/img/comic/series/eps2/5.jpg",
+      "./assets/img/comic/series/eps2/6.jpg",
+    ],
+  },
+  {
+    selector: ".image-comic-3",
+    sources: [
+      "./assets/img/comic/series/eps3/1.jpg",
+      "./assets/img/comic/series/eps3/2.jpg",
+      "./assets/img/comic/series/eps3/3.jpg",
+      "./assets/img/comic/series/eps3/4.jpg",
+      "./assets/img/comic/series/eps3/5.jpg",
+    ],
+  },
+  {
+    selector: ".image-comic-4",
+    sources: [
+      "./assets/img/comic/series/eps4/1.jpg",
+      "./assets/img/comic/series/eps4/2.jpg",
+      "./assets/img/comic/series/eps4/3.jpg",
+    ],
+  },
+];
 
 $(document).ready(function () {
   // Responsive Parallax
   const mediaQuery = window.matchMedia("(min-width: 992px)");
   if (mediaQuery.matches) {
-    // About Parallax
-    var b = document.getElementsByTagName("body")[0];
-    b.addEventListener("mousemove", function (event) {
+    $("body").on("mousemove", function (event) {
       aboutParallax(event);
     });
 
     $(window).scroll(function (e) {
-      let scroll, content, about, progress, character, teams, socialMedia;
-      scroll = $(window).scrollTop() + $(window).height();
-      content = $(".content").offset().top;
-      about = $(".what-indekos").offset().top;
-      progress = $(".loading-progress").offset().top;
-      character = $(".image-comic-4").offset().top;
-      teams = $("#teams").offset().top;
-      socialMedia = $(".footer-background").offset().top;
-
-      if (scroll - $(window).height() >= content) {
-        $(".page-progress").css("top", "20%");
-      } else {
-        $(".page-progress").css("top", "0%");
-      }
-
-      if (scroll >= about) {
-        $(".about-timeline")
-          .addClass("active")
-          .siblings("li")
-          .removeClass("active");
-      }
-      if (scroll >= progress) {
-        $(".progress-timeline")
-          .addClass("active")
-          .siblings("li")
-          .removeClass("active");
-      }
-      if (scroll >= character) {
-        $(".character-timeline")
-          .addClass("active")
-          .siblings("li")
-          .removeClass("active");
-      }
-      if (scroll - $(window).height() >= teams) {
-        $(".teams-timeline")
-          .addClass("active")
-          .siblings("li")
-          .removeClass("active");
-
-        if (!isRun) {
-          console.log(isRun);
-          isRun = true;
-          setTimeout(() => {
-            walkingAnimation();
-          }, randomValue);
-        }
-      }
-      if (scroll >= socialMedia) {
-        $(".sosmed-timeline")
-          .addClass("active")
-          .siblings("li")
-          .removeClass("active");
-      }
+      const scrollPosition = $(window).scrollTop();
+      const windowHeight = $(window).height();
+      const progressSelector = {
+        contentSelector: ".content",
+        aboutSelector: ".what-indekos",
+        progressSelector: ".loading-progress",
+        characterSelector: ".image-comic-4",
+        teamsSelector: "#teams",
+        socialMediaSelector: ".footer-background",
+      };
+      updatePageProgress(scrollPosition, windowHeight, progressSelector);
     });
 
     $(document).mousemove(function (e) {
-      $("#tooltip").css({
-        left: e.pageX,
-        top: e.pageY + 50,
-      });
-
-      // Progress Pointer
-      $(".progress-pointer")
-        .on("mouseover", function () {
-          $(this).addClass("progress-pointer__animation");
-        })
-        .on("mouseout", function () {
-          $(this).removeClass("progress-pointer__animation");
-        });
-
-      // Pre Production
-      $(".pre-production__doni")
-        .on("mouseover", function () {
-          $(this).addClass("pre-production__animation");
-          $(".pre-production__roy").addClass("pre-production__animation");
-          $("#tooltip").removeClass("d-none");
-          $("#tooltip").attr("src", "./assets/img/tooltip/pre-production.png");
-        })
-        .on("mouseout", function () {
-          $(this).removeClass("pre-production__animation");
-          $(".pre-production__roy").removeClass("pre-production__animation");
-          $("#tooltip").addClass("d-none");
-          $("#tooltip").removeAttr("src");
-        });
-
-      // Production
-      $(".production__doni")
-        .on("mouseover", function () {
-          $(this).addClass("production__animation-2");
-          $(".production__roy").addClass("production__animation-1");
-          $("#tooltip").removeClass("d-none");
-          $("#tooltip").attr("src", "./assets/img/tooltip/production.png");
-        })
-        .on("mouseout", function () {
-          $(this).removeClass("production__animation-2");
-          $(".production__roy").removeClass("production__animation-1");
-          $("#tooltip").addClass("d-none");
-          $("#tooltip").removeAttr("src");
-        });
-
-      // Post Production
-      $(".post-production__doni")
-        .on("mouseover", function () {
-          $(this).addClass("post-production__animation");
-          $("#tooltip").removeClass("d-none");
-          $("#tooltip").attr("src", "./assets/img/tooltip/post-production.png");
-        })
-        .on("mouseout", function () {
-          $(this).removeClass("post-production__animation");
-          $("#tooltip").addClass("d-none");
-          $("#tooltip").removeAttr("src");
-        });
-
-      // Launching
-      $(".launching__roy")
-        .on("mouseover", function () {
-          $(this).addClass("launching__animation");
-          $("#tooltip").removeClass("d-none");
-          $("#tooltip").attr("src", "./assets/img/tooltip/launching.png");
-        })
-        .on("mouseout", function () {
-          $(this).removeClass("launching__animation");
-          $("#tooltip").addClass("d-none");
-          $("#tooltip").removeAttr("src");
-        });
+      progressPointerHandler();
+      tooltipElement(e, true);
     });
 
     // Social Media
@@ -173,112 +149,13 @@ $(document).ready(function () {
       });
   } else {
     $(".page-progress").addClass("d-none");
-
-    $(".pre-production__doni")
-      .on("mouseover", function (e) {
-        $("#tooltip").css({
-          left: $(".pre-production__doni").position().left + 30,
-          top: `${e.pageY + 15}px`,
-        });
-
-        $("#tooltip").removeClass("d-none");
-        $("#tooltip").attr("src", "./assets/img/tooltip/pre-production.png");
-      })
-      .on("mouseout", function () {
-        $("#tooltip").addClass("d-none");
-        $("#tooltip").removeAttr("src");
-      });
-
-    $(".production__doni")
-      .on("mouseover", function (e) {
-        $("#tooltip").css({
-          left: $(".production__doni").position().left + 30,
-          top: `${e.pageY + 15}px`,
-        });
-
-        $("#tooltip").removeClass("d-none");
-        $("#tooltip").attr("src", "./assets/img/tooltip/production.png");
-      })
-      .on("mouseout", function () {
-        $("#tooltip").addClass("d-none");
-        $("#tooltip").removeAttr("src");
-      });
-
-    $(".post-production__doni")
-      .on("mouseover", function (e) {
-        $("#tooltip").css({
-          left: $(".post-production__doni").position().left + 30,
-          top: `${e.pageY + 15}px`,
-        });
-
-        $("#tooltip").removeClass("d-none");
-        $("#tooltip").attr("src", "./assets/img/tooltip/post-production.png");
-      })
-      .on("mouseout", function () {
-        $("#tooltip").addClass("d-none");
-        $("#tooltip").removeAttr("src");
-      });
-
-    $(".launching__roy")
-      .on("mouseover", function (e) {
-        $("#tooltip").css({
-          left: $(".launching__roy").position().left + 30,
-          top: `${e.pageY + 15}px`,
-        });
-
-        $("#tooltip").removeClass("d-none");
-        $("#tooltip").attr("src", "./assets/img/tooltip/launching.png");
-      })
-      .on("mouseout", function () {
-        $("#tooltip").addClass("d-none");
-        $("#tooltip").removeAttr("src");
-      });
+    tooltipElement(null, false);
   }
 
-  // Comic
-  $(".image-comic-1").on("click", function () {
-    var lightbox = new FsLightbox();
-    lightbox.props.sources = [
-      "./assets/img/comic/series/eps4/a.jpg",
-      "./assets/img/comic/series/eps4/b.jpg",
-      "./assets/img/comic/series/eps4/c.jpg",
-      "./assets/img/comic/series/eps4/d.jpg",
-      "./assets/img/comic/series/eps4/e.jpg",
-    ];
-    lightbox.open();
-  });
-  $(".image-comic-2").on("click", function () {
-    var lightbox = new FsLightbox();
-    lightbox.props.sources = [
-      "./assets/img/comic/series/eps2/b.jpg",
-      "./assets/img/comic/series/eps2/c.jpg",
-      "./assets/img/comic/series/eps2/d.jpg",
-      "./assets/img/comic/series/eps2/e.jpg",
-      "./assets/img/comic/series/eps2/f.jpg",
-      "./assets/img/comic/series/eps2/g.jpg",
-    ];
-    lightbox.open();
-  });
-  $(".image-comic-3").on("click", function () {
-    var lightbox = new FsLightbox();
-    lightbox.props.sources = [
-      "./assets/img/comic/series/eps1/A.jpg",
-      "./assets/img/comic/series/eps1/B.jpg",
-      "./assets/img/comic/series/eps1/C.jpg",
-      "./assets/img/comic/series/eps1/D.jpg",
-      "./assets/img/comic/series/eps1/E.jpg",
-    ];
-    lightbox.open();
-  });
-  $(".image-comic-4").on("click", function () {
-    var lightbox = new FsLightbox();
-    lightbox.props.sources = [
-      "./assets/img/comic/series/eps3/a.jpg",
-      "./assets/img/comic/series/eps3/b.jpg",
-      "./assets/img/comic/series/eps3/c.jpg",
-    ];
-    lightbox.open();
-  });
+  for (const imageSet of imageSets) {
+    openImageLightbox(imageSet.selector, imageSet.sources);
+  }
+
   $(".image-comic-5").on("click", function () {
     window.open("https://www.instagram.com/indekos_/", "_blank");
   });
@@ -293,59 +170,6 @@ $(document).ready(function () {
     location.href = "./character.html";
   });
 });
-
-// function
-function aboutParallax(e) {
-  var amountMovedX = (e.clientX * -0.4) / 10;
-  var amountMovedY = (e.clientY * -0.4) / 10;
-  var x = document.getElementsByClassName("about-indekos");
-  var i;
-  for (i = 0; i < x.length; i++) {
-    // About Parallax
-    $(".img-about-1").css(
-      "transform",
-      `translate(${amountMovedX * -0.3}px, ${amountMovedY * -0.3}px)`
-    );
-    $(".img-about-2").css(
-      "transform",
-      `translate(${amountMovedX * -0.4}px, ${amountMovedY * -0.4}px)`
-    );
-    $(".img-about-3").css(
-      "transform",
-      `translate(${amountMovedX * -0.7}px, ${amountMovedY * -0.7}px)`
-    );
-    $(".img-about-4").css(
-      "transform",
-      `translate(${amountMovedX * -0.9}px, ${amountMovedY * -0.9}px)`
-    );
-    $(".img-about-5").css(
-      "transform",
-      `translate(${amountMovedX * -1.1}px, ${amountMovedY * -1.1}px)`
-    );
-    $(".img-about-6").css(
-      "transform",
-      `translate(${amountMovedX * -1.2}px, ${amountMovedY * -1.2}px)`
-    );
-    $(".img-about-7").css(
-      "transform",
-      `translate(${amountMovedX * -0.3}px, ${amountMovedY * -0.3}px)`
-    );
-  }
-}
-
-function walkingAnimation() {
-  xPos += 4;
-  yPos = Math.sin(time * 0.1) * 10;
-  time++;
-  midground.css("transform", "translate(" + xPos + "px, " + yPos + "px)");
-  var rect = midground[0].getBoundingClientRect();
-  if (rect.right < 0 || rect.left > lebarViewport) {
-    midground.remove();
-    return;
-  }
-
-  requestAnimationFrame(walkingAnimation);
-}
 
 $(window).resize(function () {
   lebarViewport = $(window).width();

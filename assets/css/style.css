@@ -53,7 +53,7 @@ nav img {
 
 .menu-page {
   position: fixed;
-  top: 35%;
+  top: 0;
   width: 100vw;
   height: 100vh;
   z-index: 95;
@@ -77,7 +77,7 @@ nav img {
 
 .menu-page .nav-menu {
   position: relative;
-  top: 18%;
+  top: 30%;
 }
 
 .menu-page .nav-menu img {
@@ -603,15 +603,15 @@ footer .footer-background {
 footer span {
   position: relative;
   font-family: "bakso_sapiregular";
-  font-size: 0.4rem;
+  font-size: 0.3rem;
   text-align: center;
-  top: -50%;
+  top: -10%;
   z-index: 6;
 }
 
 footer span a {
   color: #dfdfdf;
-  font-size: 0.4rem;
+  font-size: 0.3rem;
   text-decoration: none;
 }
 
@@ -697,6 +697,10 @@ footer span a:hover {
 }
 
 @media (min-width: 600px) {
+  .menu-page .nav-menu {
+    top: 7%;
+  }
+
   #progress .loading-progress .progress-title span {
     font-size: 0.5rem;
   }
@@ -716,6 +720,10 @@ footer span a:hover {
 }
 
 @media (min-width: 769px) {
+  .menu-page .nav-menu {
+    top: 18%;
+  }
+
   #about .about-indekos .demo-video {
     transform: translateY(165%) rotateZ(350deg);
     left: 65%;
@@ -862,7 +870,7 @@ footer span a:hover {
   }
 
   #character .character-kos {
-    min-height: 40rem;
+    min-height: 50rem;
   }
 
   footer span {
