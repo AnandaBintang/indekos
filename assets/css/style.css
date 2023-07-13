@@ -504,15 +504,44 @@ nav img {
   transform: rotateZ(-10deg);
 }
 
-#teams .midground {
+#teams .midground-roy {
   top: 50%;
   transform: translateX(-340px);
   width: 20%;
   z-index: 3;
 }
 
-#teams .foreground {
+#teams .midground-doni {
+  top: 55%;
+  transform: translateX(-140px);
+  width: 15%;
+  z-index: 3;
+}
+
+#teams .lamp img {
+  top: -83%;
+  left: -20%;
+  width: 90%;
   z-index: 4;
+  animation: lampAnim ease-in-out 3s infinite;
+}
+
+#teams .shadow {
+  opacity: 0.7;
+  z-index: 4;
+}
+
+#teams .lamp .main {
+  z-index: 3;
+}
+
+#teams .lamp .flash {
+  transition: opacity 0.5s;
+  z-index: 4;
+}
+
+#teams .foreground {
+  z-index: 5;
 }
 
 #teams img {
@@ -841,7 +870,7 @@ footer span a:hover {
   }
 
   /* Staff */
-  #teams .midground {
+  #teams .midground-roy {
     left: 0%;
     top: 50%;
   }
@@ -1199,5 +1228,17 @@ footer span a:hover {
   90% {
     -webkit-transform: rotate(8deg);
     transform: rotate(8deg);
+  }
+}
+
+@keyframes lampAnim {
+  0% {
+    transform: rotateZ(-10deg);
+  }
+  50% {
+    transform: rotateZ(10deg);
+  }
+  100% {
+    transform: rotateZ(-10deg);
   }
 }

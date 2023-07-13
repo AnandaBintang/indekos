@@ -24,7 +24,6 @@ function pageProgress(element, walking) {
 
   if (walking) {
     if (!isRun) {
-      console.log(isRun);
       isRun = true;
       setTimeout(() => {
         walkingAnimation();
@@ -196,10 +195,10 @@ function tooltipElement(pagePosition, isAnimated) {
       top: pagePosition.pageY + 50,
     });
   }
-  if (isAnimated) animation = value.animation;
 
   Object.keys(tooltip).forEach(function (key) {
     const value = tooltip[key];
+    if (isAnimated) animation = value.animation;
     showTooltip(value.element, value.image, animation);
   });
 }
@@ -228,19 +227,48 @@ function showTooltip(element, image, animation) {
       $("#tooltip").removeAttr("src");
     });
 }
+function lampHandler() {
+  var lamp = $("#flash");
+  var randomImage = lampImage[Math.floor(Math.random() * lampImage.length)];
+  lamp.attr("src", randomImage);
+
+  var randomDelay = Math.random() * 2000 + 1000;
+  lamp.css("opacity", 1);
+
+  if (randomImage === null) {
+    setTimeout(function () {
+      lamp.css("opacity", 0);
+    }, 200);
+  }
+
+  setTimeout(lampHandler, randomDelay);
+}
 function walkingAnimation() {
-  xPos += 4;
-  yPos = Math.sin(time * 0.1) * 10;
+  xPosRoy += 2;
+  xPosDoni += 2;
+
+  yPosRoy = Math.sin(time * 0.1 + 1) * 10;
+  yPosDoni = Math.sin(time * 0.1) * 10;
   time++;
-  midground.css("transform", "translate(" + xPos + "px, " + yPos + "px)");
-  var rect = midground[0].getBoundingClientRect();
+
+  midgroundRoy.css(
+    "transform",
+    "translate(" + xPosRoy + "px, " + yPosRoy + "px)"
+  );
+  midgroundDoni.css(
+    "transform",
+    "translate(" + xPosDoni + "px, " + yPosDoni + "px)"
+  );
+
+  var rect = midgroundDoni[0].getBoundingClientRect();
   if (rect.right < 0 || rect.left > lebarViewport) {
-    midground.remove();
+    midgroundRoy.remove();
     return;
   }
 
   requestAnimationFrame(walkingAnimation);
 }
+
 function openImageLightbox(imageSelector, imageSources) {
   $(imageSelector).on("click", function () {
     var lightbox = new FsLightbox();

@@ -1,8 +1,13 @@
-const midground = $(".midground");
+const midgroundRoy = $(".midground-roy");
+const midgroundDoni = $(".midground-doni");
+const lampImage = ["./assets/img/staff-image/graffiti/flash-1.png", null];
 var lebarViewport = $(window).width();
-var xPos = -340;
+var xPosRoy = -340;
+var xPosDoni = -140;
 var yPos = 0;
 var time = 0;
+var stepDelayRoy = 1000;
+var stepDelayDoni = 1200;
 var randomValue = Math.random() * (5000 - 100) + 1;
 var isRun = false;
 const tooltip = {
@@ -94,6 +99,10 @@ const imageSets = [
 ];
 
 $(document).ready(function () {
+  // Daftar gambar lampu yang akan digunakan
+
+  lampHandler();
+
   // Responsive Parallax
   const mediaQuery = window.matchMedia("(min-width: 992px)");
   if (mediaQuery.matches) {
