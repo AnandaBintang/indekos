@@ -233,7 +233,7 @@ function lampHandler() {
   lamp.attr("src", randomImage);
 
   var randomDelay = Math.random() * 2000 + 1000;
-  lamp.css("opacity", 1);
+  lamp.css("opacity", 0.6);
 
   if (randomImage === null) {
     setTimeout(function () {
@@ -259,12 +259,6 @@ function walkingAnimation() {
     "transform",
     "translate(" + xPosDoni + "px, " + yPosDoni + "px)"
   );
-
-  var rect = midgroundDoni[0].getBoundingClientRect();
-  if (rect.right < 0 || rect.left > lebarViewport) {
-    midgroundRoy.remove();
-    return;
-  }
 
   requestAnimationFrame(walkingAnimation);
 }

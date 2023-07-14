@@ -1,9 +1,9 @@
 const midgroundRoy = $(".midground-roy");
 const midgroundDoni = $(".midground-doni");
-const lampImage = ["./assets/img/staff-image/graffiti/flash-1.png", null];
+const lampImage = ["./assets/img/staff-image/graffiti/flash.png", null];
 var lebarViewport = $(window).width();
-var xPosRoy = -340;
-var xPosDoni = -140;
+var xPosRoy = -540;
+var xPosDoni = -340;
 var yPos = 0;
 var time = 0;
 var stepDelayRoy = 1000;
