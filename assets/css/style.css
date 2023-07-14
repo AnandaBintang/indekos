@@ -523,7 +523,9 @@ nav img {
 }
 
 #teams .lamp img {
-  width: 100%;
+  top: 7%;
+  left: -20%;
+  width: 90%;
   z-index: 4;
   transform-origin: top center;
   animation: lampAnim ease-in-out 3s infinite;
@@ -535,19 +537,13 @@ nav img {
 }
 
 #teams .lamp .main {
-  top: 10%;
-  left: -20%;
-  width: 90%;
   z-index: 3;
 }
 
 #teams .lamp .flash {
-  transition: opacity 0.5s;
-  top: 10%;
-  left: -20%;
-  width: 90%;
   opacity: 0.6;
   z-index: 3;
+  transition: opacity 0.5s;
 }
 
 #teams .foreground {

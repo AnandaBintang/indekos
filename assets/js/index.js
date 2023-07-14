@@ -1,11 +1,12 @@
-var lebarViewport = $(window).width();
+var viewportWidth = $(window).width();
 var xPosRoy = -540;
 var xPosDoni = -340;
-var yPos = 0;
+var yPosRoy = 0;
+var yPosDoni = 0;
 var time = 0;
-var stepDelayRoy = 1000;
-var stepDelayDoni = 1200;
-var randomValue = Math.random() * (5000 - 100) + 1;
+var directionRoy = 1;
+var directionDoni = 1;
+var animationDelay = Math.random() * (5000 - 100) + 1;
 var isRun = false;
 const mediaQuery = window.matchMedia("(min-width: 992px)");
 const midgroundRoy = $(".midground-roy");
@@ -139,5 +140,5 @@ $(document).ready(function () {
 });
 
 $(window).resize(function () {
-  lebarViewport = $(window).width();
+  viewportWidth = $(window).width();
 });
