@@ -262,13 +262,45 @@ function walkingAnimation() {
 
   requestAnimationFrame(walkingAnimation);
 }
-
 function openImageLightbox(imageSelector, imageSources) {
   $(imageSelector).on("click", function () {
     var lightbox = new FsLightbox();
     lightbox.props.sources = imageSources;
     lightbox.open();
   });
+}
+function socialMediaHandler() {
+  $(".social-media__phone-container")
+    .on("mouseover", function () {
+      $(this).mousemove(function (e) {
+        $(".social-media__finger").css({
+          transition: "none",
+          left: e.pageX * (97 / 100),
+          top: (e.pageY - $("#social-medias").offset().top) * (110 / 100),
+        });
+      });
+      disableScroll();
+    })
+    .on("mouseout", function () {
+      $(".social-media__finger").css({
+        transition: "all 1s ease-in-out",
+        left: "27%",
+        top: "10%",
+      });
+      enableScroll();
+    });
+}
+function socialMediaApp(socialMedia) {
+  $(`.social-media__icon-${socialMedia}`)
+    .on("mouseover", function () {
+      $(".social-media__hover").attr(
+        "src",
+        `./assets/img/social-media/hover-${socialMedia}.png`
+      );
+    })
+    .on("mouseout", function () {
+      $(".social-media__hover").attr("src", "");
+    });
 }
 function setItemSlider(index) {
   selected_item = index;
@@ -314,4 +346,23 @@ function setItemSlider(index) {
       `./assets/img/character/${title}/siluet.png`
     );
   }
+}
+function imageRoutes() {
+  $(".image-comic-5").on("click", function () {
+    window.open("https://www.instagram.com/indekos_/", "_blank");
+  });
+
+  // Social Media
+  $(".social-media__icon-instagram").on("click", function () {
+    window.open("https://www.instagram.com/indekos_/", "_blank");
+  });
+
+  $(".social-media__icon-youtube").on("click", function () {
+    window.open("https://www.youtube.com/watch?v=vV0QhKk-m2U", "_blank");
+  });
+
+  // Kos
+  $(".character-kos").on("click", function () {
+    location.href = "./character.html";
+  });
 }

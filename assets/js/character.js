@@ -1,7 +1,8 @@
+const mediaQueryPc = window.matchMedia("(min-width: 992px)");
+const mediaQueryTab = window.matchMedia("(min-width: 500px)");
 const slider_items = $(".slider-items li");
 const nav_next = $(".slider-nav.next");
 const nav_prev = $(".slider-nav.prev");
-
 let selected_item = 0;
 
 slider_items.click(function () {
@@ -19,8 +20,6 @@ nav_prev.click(function () {
   setItemSlider(selected_item);
 });
 
-const mediaQueryPc = window.matchMedia("(min-width: 992px)");
-const mediaQueryTab = window.matchMedia("(min-width: 500px)");
 if (mediaQueryPc.matches) {
   $(".character-background").attr(
     "src",

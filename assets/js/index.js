@@ -1,6 +1,3 @@
-const midgroundRoy = $(".midground-roy");
-const midgroundDoni = $(".midground-doni");
-const lampImage = ["./assets/img/staff-image/graffiti/flash.png", null];
 var lebarViewport = $(window).width();
 var xPosRoy = -540;
 var xPosDoni = -340;
@@ -10,6 +7,10 @@ var stepDelayRoy = 1000;
 var stepDelayDoni = 1200;
 var randomValue = Math.random() * (5000 - 100) + 1;
 var isRun = false;
+const mediaQuery = window.matchMedia("(min-width: 992px)");
+const midgroundRoy = $(".midground-roy");
+const midgroundDoni = $(".midground-doni");
+const lampImage = ["./assets/img/staff-image/graffiti/flash.png", null];
 const tooltip = {
   pre: {
     element: {
@@ -97,14 +98,10 @@ const imageSets = [
     ],
   },
 ];
+const socialMedia = ["instagram", "whatsapp", "youtube"];
 
 $(document).ready(function () {
-  // Daftar gambar lampu yang akan digunakan
-
   lampHandler();
-
-  // Responsive Parallax
-  const mediaQuery = window.matchMedia("(min-width: 992px)");
   if (mediaQuery.matches) {
     $("body").on("mousemove", function (event) {
       aboutParallax(event);
@@ -129,55 +126,16 @@ $(document).ready(function () {
       tooltipElement(e, true);
     });
 
-    // Social Media
-    $(".social-media__phone-container")
-      .on("mouseover", function () {
-        $(this).mousemove(function (e) {
-          $(".social-media__finger").css({
-            transition: "none",
-            left: e.pageX * (97 / 100),
-            top: (e.pageY - $("#social-medias").offset().top) * (110 / 100),
-          });
-        });
-        disableScroll();
-      })
-      .on("mouseout", function () {
-        $(".social-media__finger").css({
-          transition: "all 1s ease-in-out",
-          left: "27%",
-          top: "10%",
-        });
-        enableScroll();
-      });
-    $(".social-media__icon-instagram")
-      .on("mouseover", function () {
-        $(".social-media__hover").removeClass("d-none");
-      })
-      .on("mouseout", function () {
-        $(".social-media__hover").addClass("d-none");
-      });
+    socialMediaHandler();
+    socialMedia.forEach(socialMediaApp);
   } else {
     $(".page-progress").addClass("d-none");
     tooltipElement(null, false);
   }
-
   for (const imageSet of imageSets) {
     openImageLightbox(imageSet.selector, imageSet.sources);
   }
-
-  $(".image-comic-5").on("click", function () {
-    window.open("https://www.instagram.com/indekos_/", "_blank");
-  });
-
-  // Social Media
-  $(".social-media__icon-instagram").on("click", function () {
-    window.open("https://www.instagram.com/indekos_/", "_blank");
-  });
-
-  // Kos
-  $(".character-kos").on("click", function () {
-    location.href = "./character.html";
-  });
+  imageRoutes();
 });
 
 $(window).resize(function () {
