@@ -46,7 +46,7 @@ function updatePageProgress(scroll, windowHeight, selector) {
   if (scroll >= character) {
     pageProgress(".character-timeline", false);
   }
-  if (scroll - windowHeight >= teams) {
+  if (scroll + 100 - windowHeight >= teams) {
     pageProgress(".teams-timeline", true);
   }
   if (scroll >= socialMedia) {
@@ -369,17 +369,15 @@ function imageRoutes() {
   $(".image-comic-5").on("click", function () {
     window.open("https://www.instagram.com/indekos_/", "_blank");
   });
-
-  // Social Media
   $(".social-media__icon-instagram").on("click", function () {
     window.open("https://www.instagram.com/indekos_/", "_blank");
   });
-
   $(".social-media__icon-youtube").on("click", function () {
     window.open("https://www.youtube.com/watch?v=vV0QhKk-m2U", "_blank");
   });
-
-  // Kos
+  $(".social-media__icon-whatsapp").on("click", function () {
+    window.open("https://wa.me/081216489381", "_blank");
+  });
   $(".character-kos").on("click", function () {
     location.href = "./character.html";
   });

@@ -129,9 +129,11 @@ $(document).ready(function () {
 
     socialMediaHandler();
     socialMedia.forEach(socialMediaApp);
+    $(".mobile-container").remove();
   } else {
     $(".page-progress").addClass("d-none");
     tooltipElement(null, false);
+    $(".desktop-container").remove();
   }
   for (const imageSet of imageSets) {
     openImageLightbox(imageSet.selector, imageSet.sources);

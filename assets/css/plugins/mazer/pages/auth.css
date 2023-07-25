@@ -1,0 +1,34 @@
+body {
+  background-color: #fff;
+}
+#auth {
+  height: 100vh;
+  overflow-x: hidden;
+}
+#auth #auth-right {
+  background: url(../../../assets/images/4853433.png?45649b87e0b3f50bfa1372c6cdb4595f),
+    linear-gradient(90deg, #fcb703, #fca503);
+  height: 100%;
+}
+#auth #auth-left {
+  padding: 5rem 8rem;
+}
+#auth #auth-left .auth-title {
+  font-size: 4rem;
+  margin-top: 10rem;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 767px) {
+  #auth #auth-left {
+    padding: 5rem;
+  }
+}
+@media screen and (max-width: 576px) {
+  #auth #auth-left {
+    padding: 5rem 3rem;
+  }
+}
+body.theme-dark #auth-right {
+  background: url(../../../assets/images/4853433.png?45649b87e0b3f50bfa1372c6cdb4595f),
+    linear-gradient(90deg, #fcb703, #fca503);
+}

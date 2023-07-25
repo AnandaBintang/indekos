@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <title>Login | Indekos Game</title>
+    <link rel="stylesheet" href="../assets/css/plugins/mazer/main/app.css" />
+    <link rel="stylesheet" href="../assets/css/plugins/mazer/pages/auth.css" />
+    <link
+      rel="shortcut icon"
+      href="../assets/icon/favicon.ico"
+      type="image/x-icon"
+    />
+  </head>
+
+  <body>
+    <div id="auth">
+      <div class="row h-100">
+        <div class="col-lg-5 col-12">
+          <div id="auth-left">
+            <h1 class="auth-title">Log in</h1>
+
+            <form id="login-form">
+              <div class="form-group position-relative has-icon-left mb-4">
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control form-control-xl"
+                  placeholder="Email"
+                />
+                <div class="form-control-icon">
+                  <i class="bi bi-person"></i>
+                </div>
+              </div>
+              <div class="form-group position-relative has-icon-left mb-4">
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control form-control-xl"
+                  placeholder="Password"
+                />
+                <div class="form-control-icon">
+                  <i class="bi bi-shield-lock"></i>
+                </div>
+              </div>
+              <div class="form-check form-check-lg d-flex align-items-end">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  id="keepLogged"
+                />
+                <label class="form-check-label text-gray-600" for="keepLogged">
+                  Keep me logged in
+                </label>
+              </div>
+              <button
+                class="btn btn-primary btn-block btn-lg shadow-lg mt-5"
+                type="submit"
+              >
+                Log in
+              </button>
+            </form>
+            <div class="text-center mt-5 text-lg fs-4">
+              <p>
+                <a class="font-bold" href="forgot-password.html"
+                  >Forgot password?</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 d-none d-lg-block">
+          <div id="auth-right"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/js/plugins/jquery.js"></script>
+    <script src="../assets/js/api/function.js"></script>
+    <script src="../assets/js/api/login.js"></script>
+  </body>
+</html>
