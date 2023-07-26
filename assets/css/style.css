@@ -272,7 +272,7 @@ nav img {
 #progress .progress-pointer {
   position: absolute;
   top: 38%;
-  left: 27%;
+  left: 0%;
   z-index: 3;
   width: 7%;
 }

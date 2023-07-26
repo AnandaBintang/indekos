@@ -365,20 +365,29 @@ function setItemSlider(index) {
     );
   }
 }
-function imageRoutes() {
-  $(".image-comic-5").on("click", function () {
-    window.open("https://www.instagram.com/indekos_/", "_blank");
-  });
-  $(".social-media__icon-instagram").on("click", function () {
-    window.open("https://www.instagram.com/indekos_/", "_blank");
-  });
-  $(".social-media__icon-youtube").on("click", function () {
-    window.open("https://www.youtube.com/watch?v=vV0QhKk-m2U", "_blank");
-  });
-  $(".social-media__icon-whatsapp").on("click", function () {
-    window.open("https://wa.me/081216489381", "_blank");
-  });
-  $(".character-kos").on("click", function () {
-    location.href = "./character.html";
-  });
+async function imageRoutes() {
+  try {
+    const response = await $.ajax({
+      url: `${API_URL}/api/social-media`,
+      type: "GET",
+    });
+
+    $(".image-comic-5").on("click", function () {
+      window.open(response.data.instagram, "_blank");
+    });
+    $(".social-media__icon-instagram").on("click", function () {
+      window.open(response.data.instagram, "_blank");
+    });
+    $(".social-media__icon-youtube").on("click", function () {
+      window.open(response.data.youtube, "_blank");
+    });
+    $(".social-media__icon-whatsapp").on("click", function () {
+      window.open(response.data.whatsapp, "_blank");
+    });
+    $(".character-kos").on("click", function () {
+      location.href = "./character.html";
+    });
+  } catch (error) {
+    console.log(`Error: ${error}`);
+  }
 }
