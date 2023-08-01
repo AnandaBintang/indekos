@@ -1,3 +1,3 @@
 $(document).ready(function () {
-  getProfile(ACCESS_TOKEN);
+  getProfile(ACCESS_TOKEN, "dashboard");
 });

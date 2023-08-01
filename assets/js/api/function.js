@@ -66,9 +66,16 @@ function logout() {
   });
 }
 
-function setProfile(name, email) {
-  $("#user-name").text(name);
-  $("#user-email").text(email);
+function setProfile(name, email, pages) {
+  if (pages == "dashboard") {
+    $("#user-name").text(name);
+    $("#user-email").text(email);
+    return;
+  }
+
+  $("#user-name").val(name);
+  $("#user-email").val(email);
+  return;
 }
 
 function setProgress(value) {
@@ -81,7 +88,7 @@ function setSocialMedia(instagram, youtube, whatsapp) {
   $("#whatsapp").val(whatsapp);
 }
 
-async function getProfile(accessToken) {
+async function getProfile(accessToken, pages) {
   try {
     const response = await $.ajax({
       url: `${API_URL}/api/users/profile`,
@@ -90,7 +97,7 @@ async function getProfile(accessToken) {
         xhr.setRequestHeader("Authorization", `Bearer ${accessToken}`);
       },
     });
-    setProfile(response.data.name, response.data.email);
+    setProfile(response.data.name, response.data.email, pages);
   } catch (error) {
     console.log(`Error: ${error}`);
   }
@@ -196,6 +203,75 @@ async function updateProgress(token, data) {
   }
 }
 
+async function updateName(token, data) {
+  try {
+    const response = await $.ajax({
+      url: `${API_URL}/api/users/update`,
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(data),
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Authorization", `Bearer ${token}`);
+      },
+    });
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: response.message,
+    });
+  } catch (error) {
+    console.log(`Error: ${error}`);
+  }
+}
+
+async function updatePassword(token, data) {
+  try {
+    const response = await $.ajax({
+      url: `${API_URL}/api/users/update-password`,
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(data),
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Authorization", `Bearer ${token}`);
+      },
+    });
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: response.message,
+    });
+
+    localStorage.removeItem("isLoggedI");
+    window.location.href = `${BASE_URL}/auth/login.html`;
+  } catch (error) {
+    console.log(`Error: ${error}`);
+  }
+}
+
 async function checkAuth(accessToken, data) {
   try {
     await $.ajax({
@@ -221,6 +297,7 @@ async function renewToken(refreshToken) {
     document.cookie = `accessToken=${response.accessToken}; secure; path=/admin`;
   } catch (error) {
     window.location.href = `${BASE_URL}/auth/login.html`;
+    localStorage.removeItem("isLoggedIn");
     console.log(`Error: ${error}`); // Mengakses error jika terjadi kesalahan
   }
 }

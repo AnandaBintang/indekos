@@ -21,3 +21,7 @@ FTP Server 	: potenza.id.domainesia.com
 FTP Server IP 	: 103.56.204.30
 FTP Port 	: 21
 SFTP Port 	: 64000 (hanya hosting Super ke atas)
+
+postgresql account
+username    :   animatio_admin
+password    :   %nhl+8jO++tT
