@@ -322,6 +322,8 @@ async function updatePassword(token, data) {
       showCancelButton: false,
       confirmButtonText: "Ok",
       denyButtonText: `Don't`,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.removeItem("isLoggedIn");
@@ -374,8 +376,21 @@ async function renewToken(refreshToken) {
     });
     document.cookie = `accessToken=${response.accessToken}; secure; path=/admin`;
   } catch (error) {
-    window.location.href = `${BASE_URL}/auth/login.html`;
-    localStorage.removeItem("isLoggedIn");
-    console.log(`Error: ${error}`); // Mengakses error jika terjadi kesalahan
+    Swal.fire({
+      title: "Login session expired, please login again!",
+      showDenyButton: false,
+      showCancelButton: false,
+      confirmButtonText: "Ok",
+      denyButtonText: `Don't`,
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = `${BASE_URL}/auth/login.html`;
+        localStorage.removeItem("isLoggedIn");
+
+        console.log(error.responseJSON.message);
+      }
+    });
   }
 }
