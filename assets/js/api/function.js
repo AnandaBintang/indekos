@@ -22,7 +22,24 @@ async function login(email, password, keepLogged) {
     saveSession(keepLogged);
     window.location.href = `${BASE_URL}/admin/dashboard.html`;
   } catch (error) {
-    console.log("Login failed:", error);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "error",
+      title: error.responseJSON.message,
+    });
+
+    console.log(error.responseJSON.error);
   }
 }
 
@@ -166,7 +183,24 @@ async function updateSocialMedia(token, data) {
       title: response.message,
     });
   } catch (error) {
-    console.log(`Error: ${error}`);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "error",
+      title: error.responseJSON.message,
+    });
+
+    console.log(error.responseJSON.error);
   }
 }
 
@@ -199,7 +233,24 @@ async function updateProgress(token, data) {
       title: response.message,
     });
   } catch (error) {
-    console.log(`Error: ${error}`); // Mengakses error jika terjadi kesalahan
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "error",
+      title: error.responseJSON.message,
+    });
+
+    console.log(error.responseJSON.error);
   }
 }
 
@@ -232,7 +283,24 @@ async function updateName(token, data) {
       title: response.message,
     });
   } catch (error) {
-    console.log(`Error: ${error}`);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "error",
+      title: error.responseJSON.message,
+    });
+
+    console.log(error.responseJSON.error);
   }
 }
 
@@ -248,6 +316,19 @@ async function updatePassword(token, data) {
       },
     });
 
+    Swal.fire({
+      title: "Password successfully updated, returning to login page again...",
+      showDenyButton: false,
+      showCancelButton: false,
+      confirmButtonText: "Ok",
+      denyButtonText: `Don't`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("isLoggedIn");
+        window.location.href = `${BASE_URL}/auth/login.html`;
+      }
+    });
+  } catch (error) {
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -261,14 +342,11 @@ async function updatePassword(token, data) {
     });
 
     Toast.fire({
-      icon: "success",
-      title: response.message,
+      icon: "error",
+      title: error.responseJSON.message,
     });
 
-    localStorage.removeItem("isLoggedI");
-    window.location.href = `${BASE_URL}/auth/login.html`;
-  } catch (error) {
-    console.log(`Error: ${error}`);
+    console.log(error.responseJSON.error);
   }
 }
 
